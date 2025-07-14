@@ -31,7 +31,7 @@ export default function Footer() {
                 About Us
               </span>
             </Link>
-            <Link to="/about">
+            <Link to="/contact">
               <span className="text-lg rounded-full py-2 hover:text-primary text-[#9F9C96]">
                 Contact Us
               </span>

@@ -1,8 +1,4 @@
 import React from "react";
-// export default function Footer() {
-//   return <div>footer</div>;
-// }
-
 import { FaFacebook, FaInstagram, FaPhoneAlt } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoMailOutline } from "react-icons/io5";
@@ -30,22 +26,22 @@ export default function Footer() {
         <section>
           <h3 className="text-lg font-semibold mb-5">Information</h3>
           <ul className="space-y-4 flex flex-col">
-            <Link href="/">
+            <Link to="/about">
               <span className="text-lg rounded-full py-2 hover:text-primary text-[#9F9C96]">
                 About Us
               </span>
             </Link>
-            <Link href="/about">
+            <Link to="/about">
               <span className="text-lg rounded-full py-2 hover:text-primary text-[#9F9C96]">
                 Contact Us
               </span>
             </Link>
-            <Link href="/personal-trainers">
+            <Link to="/personal-trainers">
               <span className="text-lg rounded-full py-2 hover:text-primary text-[#9F9C96]">
                 Terms and Conditions
               </span>
             </Link>
-            <Link href="/fitness-enthusiasts">
+            <Link to="/fitness-enthusiasts">
               <span className="text-lg rounded-full py-2 hover:text-primary text-[#9F9C96]">
                 Privacy Policy
               </span>

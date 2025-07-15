@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FaRegUser, FaTimes, FaBars } from "react-icons/fa";
 import { FiUserPlus } from "react-icons/fi";
@@ -11,6 +11,8 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -60,6 +62,23 @@ export default function Navbar() {
       document.body.style.overflow = "auto";
     };
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <nav className="bg-[#171716] text-white px-4 py-3 sticky top-0 z-50">
@@ -145,14 +164,61 @@ export default function Navbar() {
               </button>
             </div>
             <div className="flex-1 flex items-center justify-end space-x-6">
-              <div className="flex items-center space-x-3 cursor-pointer group">
-                <Link to="/profile">
+              <div className="relative" ref={dropdownRef}>
+                <div 
+                  className="flex items-center space-x-3 cursor-pointer group"
+                  onClick={toggleDropdown}
+                >
                   <img
                     src="https://i.ibb.co.com/RvFgZC8/aman.png"
                     alt="profile"
-                    className="h-10 w-10 rounded-full"
+                    className="h-10 w-10 rounded-full border-2 border-transparent group-hover:border-[#136BFB] transition-colors"
                   />
-                </Link>
+                </div>
+                
+                {/* Dropdown Menu */}
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                    <Link
+                      to="/profile"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                     My Profile
+                    </Link>
+                    <Link
+                      to="/settings"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      Favourite
+                    </Link>
+                    <Link
+                      to="/settings"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      
+                    </Link>
+                    <Link
+                      to="/settings"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      Support
+                    </Link>
+                    <button
+                      className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                      onClick={() => {
+                        // Add your logout logic here
+                        console.log('Logout');
+                        setIsDropdownOpen(false);
+                      }}
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
               </div>
               <Link to="/notification">
                 <button className="p-1 text-gray-400 hover:text-white relative">

@@ -4,7 +4,7 @@ import { FaAngleRight } from "react-icons/fa";
 export default function BreadCrumb({ title }) {
   return (
 
-      <ul className="flex items-center justify-center font-[sans-serif] my-5 gap-2">
+      <ul className="flex items-center justify-center font-[sans-serif] py-5 gap-2">
         <li className="relative">
           <span className="text-[#9F9C96] cursor-pointer text-sm">
             Home

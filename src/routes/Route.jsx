@@ -7,6 +7,7 @@ import ContactUs from "../pages/contactUs/ContactUs";
 import TermsAndCondition from "../pages/TermsAndCondition/TermsAndCondition";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import Profile from "../pages/profile/Profile";
+import Notifications from "../pages/Notifications/Notifications";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/notification",
+        element: <Notifications />,
       },
     ],
   },

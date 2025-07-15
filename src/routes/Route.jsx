@@ -4,6 +4,9 @@ import Layout from "../layout/Layout";
 import Home from "../pages/Home/Home";
 import AboutUs from "../pages/aboutUs/AboutUs";
 import ContactUs from "../pages/contactUs/ContactUs";
+import TermsAndCondition from "../pages/TermsAndCondition/TermsAndCondition";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
+import Profile from "../pages/profile/Profile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +23,18 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactUs />,
+      },
+      {
+        path: "/terms-and-condition",
+        element: <TermsAndCondition />,
+      },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

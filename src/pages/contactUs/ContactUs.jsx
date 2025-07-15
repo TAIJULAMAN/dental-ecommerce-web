@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MdMail, MdPhone } from "react-icons/md";
+import BreadCrumb from "../../components/shared/BreadCrumb";
 
 export default function ContactUs() {
   const [subject, setSubject] = useState("");
@@ -12,28 +13,39 @@ export default function ContactUs() {
 
   return (
     <div className="min-h-screen bg-[#171717] text-white py-5">
-          {/* clip path */}
-          <div>
-            
-          </div>
-      <div className="container mx-auto bg-[#1c1c1c] shadow-lg rounded-lg py-5">
+      <div className="container mx-auto flex justify-start items-center">
+        <BreadCrumb title="Contact Us" />
+      </div>
+      <div className="container mx-auto py-5 shadow-lg rounded-lg bg-[#1c1c1c]">
         <div className="p-5 max-w-3xl mx-auto">
           <div className="flex flex-col md:flex-row justify-center items-center gap-5 mb-10 pt-5">
             <div className="flex items-center gap-3 text-gray-300">
               <MdMail className="w-6 h-6 text-blue-500" />
-              <span className="text-[#136BFB] font-medium text-[25px]">Email :</span>
+              <span className="text-[#136BFB] font-medium text-[25px]">
+                Email :
+              </span>
               <div>
-                <div className="text-[#9F9C96] text-[23px]">youremail@gmail.com</div>
-                <div className="text-[#9F9C96] text-[23px]">letstalk@gmail.com</div>
+                <div className="text-[#9F9C96] text-[23px]">
+                  youremail@gmail.com
+                </div>
+                <div className="text-[#9F9C96] text-[23px]">
+                  letstalk@gmail.com
+                </div>
               </div>
             </div>
 
             <div className="flex items-center gap-3 text-gray-300">
               <MdPhone className="w-6 h-6 text-blue-500" />
-                <span className="text-[#136BFB] font-medium text-[25px]">Phone :</span>
+              <span className="text-[#136BFB] font-medium text-[25px]">
+                Phone :
+              </span>
               <div>
-                <div className="text-[#9F9C96] text-[23px]">(+1) (888) 750-6866</div>
-                <div className="text-[#9F9C96] text-[23px]">(+1) (888) 785-3986</div>
+                <div className="text-[#9F9C96] text-[23px]">
+                  (+1) (888) 750-6866
+                </div>
+                <div className="text-[#9F9C96] text-[23px]">
+                  (+1) (888) 785-3986
+                </div>
               </div>
             </div>
           </div>

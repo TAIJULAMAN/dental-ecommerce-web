@@ -36,12 +36,12 @@ export default function Footer() {
                 Contact Us
               </span>
             </Link>
-            <Link to="/personal-trainers">
+            <Link to="/terms-and-condition">
               <span className="text-lg rounded-full py-2 hover:text-primary text-[#9F9C96]">
                 Terms and Conditions
               </span>
             </Link>
-            <Link to="/fitness-enthusiasts">
+            <Link to="/privacy-policy">
               <span className="text-lg rounded-full py-2 hover:text-primary text-[#9F9C96]">
                 Privacy Policy
               </span>

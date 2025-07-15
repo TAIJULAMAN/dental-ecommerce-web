@@ -8,6 +8,8 @@ import TermsAndCondition from "../pages/TermsAndCondition/TermsAndCondition";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import Profile from "../pages/profile/Profile";
 import Notifications from "../pages/Notifications/Notifications";
+import LogIn from "../components/auth/LogIn";
+import SignUp from "../components/auth/SignUp";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
       {
         path: "/notification",
         element: <Notifications />,
+      },
+      {
+        path: "/login",
+        element: <LogIn />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
       },
     ],
   },

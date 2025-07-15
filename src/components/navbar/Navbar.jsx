@@ -5,7 +5,7 @@ import { FiUserPlus } from "react-icons/fi";
 import { LuBell } from "react-icons/lu";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import { VscSettings } from "react-icons/vsc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +13,7 @@ export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -70,9 +71,9 @@ export default function Navbar() {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -87,7 +88,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="w-[80px] h-[60px] flex items-center justify-center md:w-[100px] md:h-[70px]">
-            <img src="/logo.png" alt="company logo" className="h-full w-auto" />
+            <img src="/logo.svg" alt="company logo" className="h-full w-auto" />
           </div>
 
           {/* Mobile Menu Button */}
@@ -165,7 +166,7 @@ export default function Navbar() {
             </div>
             <div className="flex-1 flex items-center justify-end space-x-6">
               <div className="relative" ref={dropdownRef}>
-                <div 
+                <div
                   className="flex items-center space-x-3 cursor-pointer group"
                   onClick={toggleDropdown}
                 >
@@ -175,7 +176,7 @@ export default function Navbar() {
                     className="h-10 w-10 rounded-full border-2 border-transparent group-hover:border-[#136BFB] transition-colors"
                   />
                 </div>
-                
+
                 {/* Dropdown Menu */}
                 {isDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
@@ -184,7 +185,7 @@ export default function Navbar() {
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       onClick={() => setIsDropdownOpen(false)}
                     >
-                     My Profile
+                      My Profile
                     </Link>
                     <Link
                       to="/settings"
@@ -197,9 +198,7 @@ export default function Navbar() {
                       to="/settings"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       onClick={() => setIsDropdownOpen(false)}
-                    >
-                      
-                    </Link>
+                    ></Link>
                     <Link
                       to="/settings"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -210,8 +209,7 @@ export default function Navbar() {
                     <button
                       className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
                       onClick={() => {
-                        // Add your logout logic here
-                        console.log('Logout');
+                        navigate("/signup");
                         setIsDropdownOpen(false);
                       }}
                     >

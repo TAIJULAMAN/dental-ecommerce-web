@@ -10,6 +10,11 @@ import Profile from "../pages/profile/Profile";
 import Notifications from "../pages/Notifications/Notifications";
 import LogIn from "../components/auth/LogIn";
 import SignUp from "../components/auth/SignUp";
+import ForgetPassword from "../components/auth/ForgetPass";
+import Otp from "../components/auth/Otp";
+import ResetPassword from "../components/auth/ResetPassword";
+import Congratulations from "../components/auth/Congratulations";
+import Pharmaceuticals from "../pages/pharmaceuticals/Pharmaceuticals";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +24,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      // footer pages
       {
         path: "/about",
         element: <AboutUs />,
@@ -35,6 +41,7 @@ const router = createBrowserRouter([
         path: "/privacy-policy",
         element: <PrivacyPolicy />,
       },
+      // navbar pages
       {
         path: "/profile",
         element: <Profile />,
@@ -44,12 +51,33 @@ const router = createBrowserRouter([
         element: <Notifications />,
       },
       {
+        path: "/pharmaceuticals",
+        element: <Pharmaceuticals />,
+      },
+      // auth pages
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
+      {
         path: "/login",
         element: <LogIn />,
       },
       {
-        path: "/signup",
-        element: <SignUp />,
+        path: "/forget-password",
+        element: <ForgetPassword />,
+      },
+      {
+        path: "/verify-mail",
+        element: <Otp />,
+      },
+      {
+        path: "/reset-password",
+        element: <ResetPassword />,
+      },
+      {
+        path: "/congratulations",
+        element: <Congratulations />,
       },
     ],
   },

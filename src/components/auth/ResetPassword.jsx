@@ -1,3 +1,5 @@
+
+import React from "react";
 import { useState } from "react";
 import { IoEyeOffOutline, IoEyeOutline, IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -74,7 +76,7 @@ export default function ResetPassword() {
               </div>
             </div>
 
-            <Link to="/welcome">
+            <Link to="/congratulations">
               <button
                 type="submit"
                 className="w-full bg-[#136BFB] text-white text-lg font-bold py-3 px-4 rounded-lg transition mt-5"

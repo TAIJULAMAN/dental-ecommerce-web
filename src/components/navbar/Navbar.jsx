@@ -136,7 +136,7 @@ export default function Navbar() {
               Procedure Guide
             </a>
             <a
-              href="#"
+              href="/pharmaceuticals"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Pharmaceuticals

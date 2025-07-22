@@ -112,7 +112,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <a
-              href="#"
+              href="/"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Home
@@ -142,7 +142,7 @@ export default function Navbar() {
               Pharmaceuticals
             </a>
             <a
-              href="#"
+              href="/blog"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Blog

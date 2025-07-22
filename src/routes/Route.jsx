@@ -17,6 +17,10 @@ import Congratulations from "../components/auth/Congratulations";
 import Pharmaceuticals from "../pages/pharmaceuticals/Pharmaceuticals";
 import ProcedureGuide from "../pages/procedureGuide/ProcedureGuide";
 import ProcedureDetails from "../pages/procedureGuide/procedureDetails";
+import Blog from "../pages/Blog/Blog";
+import BlogDetails from "../pages/Blog/BlogDetail/BlogDetails";
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,6 +68,15 @@ const router = createBrowserRouter([
         path: "/procedure-guide-details",
         element: <ProcedureDetails />,
       },
+      {
+        path: "/blog",
+        element: <Blog />
+      },
+      {
+        path: "/blog/details/:id",
+        element: <BlogDetails></BlogDetails>
+      },
+
       // auth pages
       {
         path: "/signup",

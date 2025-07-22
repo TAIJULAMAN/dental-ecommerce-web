@@ -98,11 +98,11 @@ export default function AiSupport() {
     };
 
     return (
-        <div>
+        <div className="min-h-screen bg-[#171717] py-5">
             <div className="container mx-auto flex justify-start items-center py-10">
                 <BreadCrumb name="Home" title="Support" />
             </div>
-            <div className="max-w-5xl mx-auto flex flex-col h-screen bg-[#000]">
+            <div className="max-w-5xl mx-auto flex flex-col h-screen bg-[#000] rounded-lg">
                 <ChatHeader />
 
                 <div className="flex-1 overflow-y-auto px-6 py-4">

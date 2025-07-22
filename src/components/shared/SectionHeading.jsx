@@ -27,7 +27,7 @@ const SectionHeading = ({
       {showButton && (
         <button 
           onClick={onButtonClick}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
+          className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
         >
           {buttonText}
         </button>

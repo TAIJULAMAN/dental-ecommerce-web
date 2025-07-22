@@ -50,7 +50,7 @@ const HotSelling = () => {
                 className='object-cover w-full h-full'
               />
               {/* heart icon */}
-              <div className='absolute z-50 top-2 right-2'>
+              <div className='absolute z-10 top-2 right-2'>
                 <img
                   src='https://i.ibb.co/rfxr1W8q/heart.png'
                   alt='heart'

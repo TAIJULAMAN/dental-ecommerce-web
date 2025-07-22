@@ -19,7 +19,7 @@ import ProcedureGuide from "../pages/procedureGuide/ProcedureGuide";
 import ProcedureDetails from "../pages/procedureGuide/procedureDetails";
 import Blog from "../pages/Blog/Blog";
 import BlogDetails from "../pages/Blog/BlogDetail/BlogDetails";
-
+import AiSupport from "../pages/aiSupport/AiSupport";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +77,10 @@ const router = createBrowserRouter([
         element: <BlogDetails></BlogDetails>
       },
 
+  {
+        path: "/ai-support",
+        element: <AiSupport />,
+      },
       // auth pages
       {
         path: "/signup",

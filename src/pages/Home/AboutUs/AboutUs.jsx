@@ -13,7 +13,7 @@ const AboutUs = () => {
  {/* Main Content */}
       <div className="px-6 py-12">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
+          <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-12 gap-28 ">
             
             {/* Left Side - Images */}
             <div className="relative">
@@ -26,7 +26,7 @@ const AboutUs = () => {
                   />
                 
                 {/* Overlapping Image - Dental professional */}
-                <div className="absolute -bottom-20 -right-8 lg:right-40">
+                <div className="absolute -bottom-20 md:-right-8 -right-2 lg:right-40">
                   <img 
                   src="https://i.ibb.co/FvKkfqt/doc1.jpg"
                     alt="Dental professional"

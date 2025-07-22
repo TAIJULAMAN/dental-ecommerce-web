@@ -41,7 +41,7 @@ const Favorite = () => {
   return (
     <div className="mx-auto container text-white py-10 px-0">
       <div>
-        <BreadCrumb name={`Blog`} title={`Details`}></BreadCrumb>
+        <BreadCrumb name={`Home`} title={`Favorite`}></BreadCrumb>
       </div>
 
       <div className="flex justify-between items-center mb-10">
@@ -62,7 +62,7 @@ const Favorite = () => {
       </div>
 
       {/* cards */}
-      <div className="flex gap-5 flex-wrap">
+      <div className="flex gap-5 flex-wrap justify-center">
         {products.map((product, idx) => (
           <div key={idx} className="w-[288px]">
             {/* img part */}

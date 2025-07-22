@@ -337,11 +337,20 @@ export default function Navbar() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/blog"
                   className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
                   onClick={toggleMenu}
                 >
                   Blog
+                </a>
+              </li>
+                <li>
+                <a
+                  href="/favorite"
+                  className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
+                  onClick={toggleMenu}
+                >
+                  Favorite
                 </a>
               </li>
             </ul>

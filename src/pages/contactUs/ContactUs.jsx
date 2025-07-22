@@ -14,7 +14,7 @@ export default function ContactUs() {
   return (
     <div className="min-h-screen bg-[#171717] text-white py-5">
       <div className="container mx-auto flex justify-start items-center">
-        <BreadCrumb title="Contact Us" />
+        <BreadCrumb name="Home" title="Contact Us" />
       </div>
       <div className="container mx-auto py-5 shadow-lg rounded-lg bg-[#1c1c1c]">
         <div className="p-5 max-w-3xl mx-auto">

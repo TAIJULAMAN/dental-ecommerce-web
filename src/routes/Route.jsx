@@ -15,6 +15,8 @@ import Otp from "../components/auth/Otp";
 import ResetPassword from "../components/auth/ResetPassword";
 import Congratulations from "../components/auth/Congratulations";
 import Pharmaceuticals from "../pages/pharmaceuticals/Pharmaceuticals";
+import ProcedureGuide from "../pages/procedureGuide/ProcedureGuide";
+import ProcedureDetails from "../pages/procedureGuide/procedureDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
       {
         path: "/pharmaceuticals",
         element: <Pharmaceuticals />,
+      },
+      {
+        path: "/procedure-guide",
+        element: <ProcedureGuide />,
+      },
+      {
+        path: "/procedure-guide-details",
+        element: <ProcedureDetails />,
       },
       // auth pages
       {

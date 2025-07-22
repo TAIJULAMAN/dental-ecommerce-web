@@ -57,7 +57,7 @@ export default function Notifications() {
     <div className="min-h-screen bg-[#171717]">
       <div className="container mx-auto">
         <div className="container mx-auto flex justify-start items-center">
-          <BreadCrumb title="Notification" />
+          <BreadCrumb name="Home" title="Notification" />
         </div>
         <div className="bg-[#3e3e3e] rounded-t-2xl border border-gray-700 p-5 mb-10">
           <div className="flex items-center justify-between">

@@ -130,7 +130,7 @@ export default function Navbar() {
               Category
             </a>
             <a
-              href="#"
+              href="/procedure-guide"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Procedure Guide

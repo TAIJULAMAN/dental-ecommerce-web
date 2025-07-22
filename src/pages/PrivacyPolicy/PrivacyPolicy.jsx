@@ -4,7 +4,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-[#171717] text-white py-5">
       <div className="container mx-auto flex justify-start items-center">
-        <BreadCrumb title="Privacy Policy" />
+        <BreadCrumb name="Home" title="Privacy Policy" />
       </div>
       <div className="container mx-auto p-5 shadow-lg rounded-lg bg-[#1c1c1c]">
         <section className="px-6 py-12 text-slate-700 leading-relaxed">

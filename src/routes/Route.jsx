@@ -18,6 +18,10 @@ import Pharmaceuticals from "../pages/pharmaceuticals/Pharmaceuticals";
 import ProcedureGuide from "../pages/procedureGuide/ProcedureGuide";
 import ProcedureDetails from "../pages/procedureGuide/procedureDetails";
 import AiSupport from "../pages/aiSupport/AiSupport";
+import EditProfile from "../pages/profile/EditProfile";
+import ChangePassword from "../pages/profile/ChangePassword";
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +52,15 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/edit-profile",
+        element: <EditProfile />,
+        // element: <div>edit profile</div>,
+      },
+      {
+        path: "/change-password",
+        element: <ChangePassword />,
       },
       {
         path: "/notification",

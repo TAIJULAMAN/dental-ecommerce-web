@@ -147,6 +147,12 @@ export default function Navbar() {
             >
               Blog
             </a>
+              <a
+              href="/favorite"
+              className="text-white hover:text-gray-300 transition-colors"
+            >
+              Favorite
+            </a>
           </div>
 
           {/* Desktop Actions */}

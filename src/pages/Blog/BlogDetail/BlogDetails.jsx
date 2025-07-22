@@ -1,6 +1,7 @@
 import React from "react";
 import { MdOutlineDateRange } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
+import BreadCrumb from "../../../components/shared/BreadCrumb";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -29,6 +30,10 @@ const BlogDetails = () => {
 
   return (
     <div className="mx-auto container text-white py-10 px-4">
+
+        <div>
+            <BreadCrumb name={`Blog`} title={`Details`}  ></BreadCrumb>
+        </div>
       {/* Image */}
       <div className="relative  rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 group mb-6">
         <div className="relative h-[20rem] md:h-[25rem] overflow-hidden">
@@ -43,7 +48,7 @@ const BlogDetails = () => {
 
       {/* Title & Meta */}
       <div className="flex justify-between items-center my-10">
-        <h2 className="text-3xl font-semibold mb-3">{blog.title}</h2>
+        <h2 className="text-3xl font-semibold mb-3">{blog.title} </h2>
         <div className="text-[#9F9C96] text-sm mt-2 flex items-center gap-2">
           <MdOutlineDateRange className="text-[#9F9C96] text-lg" />
           <span>{blog.date}</span>
@@ -64,7 +69,7 @@ const BlogDetails = () => {
       <div className="text-center">
         <button
           onClick={() => navigate(-1)}
-          className="px-6 py-2 bg-blue-600 hover:bg-blue-700 transition rounded-md text-white font-bold"
+          className="px-6 py-2 bg-blue-600 hover:bg-blue-700 transition rounded-md text-white font-bold cursor-pointer"
         >
           Go Back to Blog
         </button>

@@ -153,6 +153,16 @@ export default function Navbar() {
             >
               Favorite
             </a>
+
+
+             <a
+              href="/myorders"
+              className="text-white hover:text-gray-300 transition-colors"
+            >
+              My Orders
+            </a>
+
+
           </div>
 
           {/* Desktop Actions */}

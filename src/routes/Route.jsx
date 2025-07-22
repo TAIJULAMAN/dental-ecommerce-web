@@ -21,6 +21,8 @@ import Blog from "../pages/Blog/Blog";
 import BlogDetails from "../pages/Blog/BlogDetail/BlogDetails";
 import AiSupport from "../pages/aiSupport/AiSupport";
 import Favorite from "../pages/Favorite/Favorite";
+import MyOrders from "../pages/MyOrder/MyOrders";
+import OrderDetails from "../pages/MyOrder/OrderDetails";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +87,15 @@ const router = createBrowserRouter([
       {
         path: "/favorite",
         element: <Favorite></Favorite>
+      },
+      
+      {
+        path: "/myorders",
+        element: <MyOrders></MyOrders>
+      },
+      {
+        path: "/myorders/details/:id",
+        element: <OrderDetails></OrderDetails>
       },
       // auth pages
       {

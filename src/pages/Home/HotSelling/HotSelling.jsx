@@ -39,7 +39,7 @@ const HotSelling = () => {
       />
 
       {/* cards */}
-      <div className='flex gap-5 flex-wrap'>
+      <div className='flex gap-5 flex-wrap justify-center'>
         {products.map((product, idx) => (
           <div key={idx} className='w-[288px]'>
             {/* img part */}
@@ -75,6 +75,9 @@ const HotSelling = () => {
           </div>
         ))}
       </div>
+
+
+
     </div>
   )
 }

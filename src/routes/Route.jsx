@@ -20,6 +20,9 @@ import ProcedureDetails from "../pages/procedureGuide/procedureDetails";
 import Blog from "../pages/Blog/Blog";
 import BlogDetails from "../pages/Blog/BlogDetail/BlogDetails";
 import AiSupport from "../pages/aiSupport/AiSupport";
+import Favorite from "../pages/Favorite/Favorite";
+import MyOrders from "../pages/MyOrder/MyOrders";
+import OrderDetails from "../pages/MyOrder/OrderDetails";
 
 import EditProfile from "../pages/profile/EditProfile";
 import ChangePassword from "../pages/profile/ChangePassword";
@@ -84,16 +87,29 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blog />
+        element: <Blog />,
       },
       {
         path: "/blog/details/:id",
-        element: <BlogDetails></BlogDetails>
+        element: <BlogDetails></BlogDetails>,
       },
 
-  {
+      {
         path: "/ai-support",
         element: <AiSupport />,
+      },
+      {
+        path: "/favorite",
+        element: <Favorite></Favorite>
+      },
+      
+      {
+        path: "/myorders",
+        element: <MyOrders></MyOrders>
+      },
+      {
+        path: "/myorders/details/:id",
+        element: <OrderDetails></OrderDetails>
       },
       // auth pages
       {

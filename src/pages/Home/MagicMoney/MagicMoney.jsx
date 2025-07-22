@@ -8,10 +8,10 @@ const MagicMoney = () => {
       <div className="text-center mb-12">
         {/* Star decorations */}
         <div className="relative mb-6">
-          <div className="absolute -top-4 left-60">
+          <div className="absolute md:-top-4 -top-8 md:left-60 -left-6">
             <img src="https://i.ibb.co/Q3kZpXGG/greenstar.png" alt="Green star" className="size-12" />
           </div>
-          <div className="absolute -top-2 right-60">
+          <div className="absolute md:-top-2 -top-5 md:right-60 -right-7">
             <img src="https://i.ibb.co/XrC6xTDR/bluestar.png" alt="Blue star" className="size-12" />
           </div>
           
@@ -73,7 +73,7 @@ const MagicMoney = () => {
             </div>
             
             {/* Formula Visualization */}
-            <div className="flex items-center justify-center space-x-4 text-center">
+            <div className="flex flex-col md:flex-row items-center justify-center space-x-4 text-center">
               {[
                 {
                   bg: "bg-[#1C1C1C]",

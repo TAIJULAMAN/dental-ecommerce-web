@@ -147,6 +147,22 @@ export default function Navbar() {
             >
               Blog
             </a>
+              <a
+              href="/favorite"
+              className="text-white hover:text-gray-300 transition-colors"
+            >
+              Favorite
+            </a>
+
+
+             <a
+              href="/myorders"
+              className="text-white hover:text-gray-300 transition-colors"
+            >
+              My Orders
+            </a>
+
+
           </div>
 
           {/* Desktop Actions */}
@@ -331,11 +347,20 @@ export default function Navbar() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/blog"
                   className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
                   onClick={toggleMenu}
                 >
                   Blog
+                </a>
+              </li>
+                <li>
+                <a
+                  href="/favorite"
+                  className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
+                  onClick={toggleMenu}
+                >
+                  Favorite
                 </a>
               </li>
             </ul>

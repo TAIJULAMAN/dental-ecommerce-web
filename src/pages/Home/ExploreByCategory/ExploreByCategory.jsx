@@ -30,7 +30,7 @@ const ExploreByCategory = () => {
       <SectionHeading />
 
       {/* cards */}
-      <div className='flex gap-5 flex-wrap'>
+      <div className='flex gap-5 flex-wrap justify-center'>
         {categories.map((category, idx) => (
           <div
             key={idx}

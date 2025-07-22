@@ -8,10 +8,10 @@ const MagicMoney = () => {
       <div className="text-center mb-12">
         {/* Star decorations */}
         <div className="relative mb-6">
-          <div className="absolute -top-4 left-60">
+          <div className="absolute md:-top-4 -top-8 md:left-60 -left-6">
             <img src="https://i.ibb.co/Q3kZpXGG/greenstar.png" alt="Green star" className="size-12" />
           </div>
-          <div className="absolute -top-2 right-60">
+          <div className="absolute md:-top-2 -top-0 md:right-60 -right-8">
             <img src="https://i.ibb.co/XrC6xTDR/bluestar.png" alt="Blue star" className="size-12" />
           </div>
           

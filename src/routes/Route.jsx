@@ -17,6 +17,7 @@ import Congratulations from "../components/auth/Congratulations";
 import Pharmaceuticals from "../pages/pharmaceuticals/Pharmaceuticals";
 import ProcedureGuide from "../pages/procedureGuide/ProcedureGuide";
 import ProcedureDetails from "../pages/procedureGuide/procedureDetails";
+import AiSupport from "../pages/aiSupport/AiSupport";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/procedure-guide-details",
         element: <ProcedureDetails />,
+      },
+      {
+        path: "/ai-support",
+        element: <AiSupport />,
       },
       // auth pages
       {

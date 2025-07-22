@@ -54,6 +54,9 @@ const ExploreByCategory = () => {
           </div>
         ))}
       </div>
+
+
+      
     </div>
   )
 }

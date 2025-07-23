@@ -182,8 +182,8 @@ const Product = () => {
               placeholder="Max"
               className="w-full py-2 px-2 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-400 outline-none"
             />
-            <button className="px-6 py-2 bg-[#136BFB] hover:bg-blue-700 rounded text-white border border-gray-300">
-              ▶
+            <button className="px-6 py-3 bg-[#136BFB] hover:bg-blue-700 rounded text-white border border-gray-300 ">
+              <BiSolidDownArrow className="-rotate-90"></BiSolidDownArrow> 
             </button>
           </div>
           <hr className="border-gray-500 opacity-30" />

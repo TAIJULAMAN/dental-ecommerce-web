@@ -26,6 +26,7 @@ import OrderDetails from "../pages/MyOrder/OrderDetails";
 
 import EditProfile from "../pages/profile/EditProfile";
 import ChangePassword from "../pages/profile/ChangePassword";
+import ShoppingCart from "../pages/shoppingCart/ShoppingCart";
 
 
 
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "/change-password",
         element: <ChangePassword />,
+      },
+      {
+        path: "/shopping-cart",
+        element: <ShoppingCart />,
       },
       {
         path: "/notification",

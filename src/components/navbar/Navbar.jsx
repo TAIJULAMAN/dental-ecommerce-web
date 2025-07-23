@@ -161,6 +161,12 @@ export default function Navbar() {
             >
               My Orders
             </a>
+            <a
+              href="/shopping-cart"
+              className="text-white hover:text-gray-300 transition-colors"
+            >
+              Shopping Cart
+            </a>
 
 
           </div>

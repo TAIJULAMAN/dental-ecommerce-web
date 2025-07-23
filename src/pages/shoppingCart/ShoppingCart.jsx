@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import CartHeader from './CartHeader';
 import CartItem from './CartItem';
 import OrderSummary from './OrderSummary';
+import BreadCrumb from '../../components/shared/BreadCrumb';
 
 
 
@@ -60,6 +61,9 @@ const ShoppingCart = () => {
     return (
         <div className="min-h-screen py-10">
             <div className="container mx-auto">
+                <div className="container mx-auto flex justify-start items-center">
+                    <BreadCrumb name="Home" title="Cart" />
+                </div>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                     {/* Cart Items Section */}
                     <div className="lg:col-span-2">

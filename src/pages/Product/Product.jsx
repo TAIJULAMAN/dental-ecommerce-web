@@ -328,7 +328,7 @@ const Product = () => {
         {/* Products Section */}
         <div className="col-span-3">
           {/* Product Cards Grid */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             {products.map((product) => (
               <HotSellingCard
                 key={product.id}

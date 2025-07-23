@@ -11,7 +11,7 @@ export default function Footer() {
         {/* First Column */}
         <section>
           <Link href="/" className=" leading-[55.46px] tracking-[-0.02em]">
-            <img src="/logo.png" alt="company logo" />
+            <img src="/logo.svg" alt="company logo" />
           </Link>
           <p className="mt-4 text-[15px] leading-[25.3px] max-w-[330px] text-[#9F9C96]">
             This platform is a digital home for preserving family legacy,

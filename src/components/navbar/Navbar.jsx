@@ -111,62 +111,62 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="#"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Product
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="#"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Category
-            </a>
-            <a
-              href="/procedure-guide"
+            </Link>
+            <Link
+              to="/procedure-guide"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Procedure Guide
-            </a>
-            <a
-              href="/pharmaceuticals"
+            </Link>
+            <Link
+              to="/pharmaceuticals"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Pharmaceuticals
-            </a>
-            <a
-              href="/blog"
+            </Link>
+            <Link
+              to="/blog"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Blog
-            </a>
-              <a
-              href="/favorite"
+            </Link>
+            <Link
+              to="/favorite"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Favorite
-            </a>
+            </Link>
 
 
-             <a
-              href="/myorders"
+             <Link
+              to="/myorders"
               className="text-white hover:text-gray-300 transition-colors"
             >
               My Orders
-            </a>
-            <a
-              href="/shopping-cart"
+            </Link>
+            <Link
+              to="/shopping-cart"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Shopping Cart
-            </a>
+            </Link>
 
 
           </div>
@@ -216,11 +216,6 @@ export default function Navbar() {
                     >
                       Favourite
                     </Link>
-                    <Link
-                      to="/settings"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      onClick={() => setIsDropdownOpen(false)}
-                    ></Link>
                     <Link
                       to="/ai-support"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -290,7 +285,7 @@ export default function Navbar() {
           <div className="flex justify-between items-center mb-8">
             <div className="w-24">
               <img
-                src="/logo.png"
+                src="/logo.svg"
                 alt="company logo"
                 className="w-full h-auto"
               />

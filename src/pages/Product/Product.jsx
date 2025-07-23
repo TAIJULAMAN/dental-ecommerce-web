@@ -168,7 +168,7 @@ const Product = () => {
  <div className="bg-gray-800 p-4 rounded-lg">
       <div className="space-y-6">
         {/* Price Filter */}
-        <div className="p-4 rounded-md w-full max-w-xs">
+        <div className="p-4  w-full max-w-xs border-b border-[#DBDBDB]">
           <h3 className="text-white text-sm font-semibold mb-3">Price Filter</h3>
           <div className="flex items-center gap-2 mb-4">
             <input
@@ -186,11 +186,11 @@ const Product = () => {
               <BiSolidDownArrow className="-rotate-90"></BiSolidDownArrow> 
             </button>
           </div>
-          <hr className="border-gray-500 opacity-30" />
+          
         </div>
 
         {/* Category Filter */}
-        <div>
+        <div className="border-b border-[#DBDBDB] pb-4">
           <div
             className="flex items-center justify-between cursor-pointer"
             onClick={() => setShowCategory(!showCategory)}
@@ -228,7 +228,7 @@ const Product = () => {
         </div>
 
         {/* Procedure Type Filter */}
-        <div>
+        <div className="border-b border-[#DBDBDB] pb-4">
           <div
             className="flex items-center justify-between cursor-pointer"
             onClick={() => setShowProcedure(!showProcedure)}
@@ -257,7 +257,7 @@ const Product = () => {
         </div>
 
         {/* Brand Filter */}
-        <div>
+        <div className="border-b border-[#DBDBDB] pb-4">
           <div
             className="flex items-center justify-between cursor-pointer"
             onClick={() => setShowBrand(!showBrand)}

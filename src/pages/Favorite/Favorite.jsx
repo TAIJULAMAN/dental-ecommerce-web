@@ -2,6 +2,7 @@ import React from "react";
 import BreadCrumb from "../../components/shared/BreadCrumb";
 import { CiSearch } from "react-icons/ci";
 import { VscSettings } from "react-icons/vsc";
+import HotSellingCard from "../../components/shared/HotSellingCard";
 
 const Favorite = () => {
   const products = [
@@ -64,38 +65,15 @@ const Favorite = () => {
       {/* cards */}
       <div className="flex gap-5 flex-wrap justify-center">
         {products.map((product, idx) => (
-          <div key={idx} className="w-[288px]">
-            {/* img part */}
-            <div className="rounded-md overflow-hidden relative w-full h-[280px]">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="object-cover w-full h-full"
-              />
-              {/* heart icon */}
-              <div className="absolute z-10 top-2 right-2">
-                <img
-                  src="https://i.ibb.co/rfxr1W8q/heart.png"
-                  alt="heart"
-                  className="cursor-pointer"
-                />
-              </div>
-            </div>
-
-            {/* text and buttons */}
-            <div className="flex flex-col gap-4 mt-4">
-              <p className="text-[#FCFBF8] text-lg">{product.title}</p>
-              <p className="text-[#9F9C96] text-sm">{product.description}</p>
-              <div className="flex justify-between">
-                <button className="px-4 py-2 rounded-md text-[#136BFB] border border-[#136BFB] cursor-pointer">
-                  View Details
-                </button>
-                <button className="bg-[#136BFB] px-4 py-2 rounded-md text-white border border-[#136BFB] cursor-pointer">
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-          </div>
+         <HotSellingCard
+          key={idx}
+          image={product.image}
+          title={product.title}
+          description={product.description}
+          onViewDetails={() => alert(`View: ${product.title}`)}
+          onAddToCart={() => alert(`Added to Cart: ${product.title}`)}
+          onWishlistClick={() => alert(`Wishlisted: ${product.title}`)}
+        />
         ))}
       </div>
     </div>

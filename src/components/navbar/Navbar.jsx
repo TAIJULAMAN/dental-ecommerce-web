@@ -118,7 +118,7 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              to="#"
+              to="product"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Product

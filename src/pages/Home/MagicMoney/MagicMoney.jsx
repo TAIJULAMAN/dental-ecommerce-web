@@ -3,7 +3,7 @@ import SaveOverTime from './SaveOverTime';
 
 const MagicMoney = () => {
   return (
-    <div className="bg-gray-900 text-white p-8 min-h-screen">
+    <div className=" text-white p-8 min-h-screen">
       {/* Header Section */}
       <div className="text-center mb-12">
         {/* Star decorations */}

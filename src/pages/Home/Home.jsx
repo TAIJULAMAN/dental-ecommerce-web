@@ -16,15 +16,15 @@ import Subscribe from "./Subscribe/Subscribe";
 export default function Home() {
     return (
         <div className="bg-[#171716]">
-<div className="container mx-auto">
-                {/* <Slider></Slider> */}
-            <ExploreByCategory />
-            <HotSelling />
+            <div className="container mx-auto">
+                <Slider />
+                <ExploreByCategory />
+                <HotSelling />
 
-            <MagicMoney />
-            <AboutUs />
-            <Subscribe />
-</div>
+                <MagicMoney />
+                <AboutUs />
+                <Subscribe />
+            </div>
         </div>
     );
 }

@@ -1,43 +1,48 @@
 import React from 'react';
 import SaveOverTime from './SaveOverTime';
 
-const MagicMoney = () => {
+export default function MagicMoney() {
   return (
-    <div className=" text-white p-8 min-h-screen">
-      {/* Header Section */}
-      <div className="text-center mb-12">
-        {/* Star decorations */}
-        <div className="relative mb-6">
-          <div className="absolute md:-top-4 -top-8 md:left-60 -left-6">
-            <img src="https://i.ibb.co/Q3kZpXGG/greenstar.png" alt="Green star" className="size-12" />
-          </div>
-          <div className="absolute md:-top-2 -top-5 md:right-60 -right-7">
-            <img src="https://i.ibb.co/XrC6xTDR/bluestar.png" alt="Blue star" className="size-12" />
+    <div className="w-full bg-[#171716] min-h-screen relative">
+      {/* Blue shadow/glow effect at center */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-96 h-96 bg-[#136BFB] opacity-20 blur-3xl rounded-full"></div>
+      </div>
+      <div className="container mx-auto text-white p-8 min-h-screen relative z-10">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          {/* Star decorations */}
+          <div className="relative mb-6">
+            <div className="absolute md:-top-4 -top-8 md:left-60 -left-6">
+              <img src="https://i.ibb.co/Q3kZpXGG/greenstar.png" alt="Green star" className="size-12" />
+            </div>
+            <div className="absolute md:-top-2 -top-5 md:right-60 -right-7">
+              <img src="https://i.ibb.co/XrC6xTDR/bluestar.png" alt="Blue star" className="size-12" />
+            </div>
+            
+            <h1 className="text-4xl font-bold text-white mb-4">
+              Unlock Growth with the Magic Money Formula
+            </h1>
           </div>
           
-          <h1 className="text-4xl font-bold text-white mb-4">
-            Unlock Growth with the Magic Money Formula
-          </h1>
-        </div>
-        
-        <p className="text-gray-400 text-lg mb-8">
-          Save, Boost EBITDA, Elevate Valuation!
-        </p>
-        
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
-            Why It Matters to Your Practice
-          </h2>
-          <p className="text-gray-400 max-w-4xl mx-auto leading-relaxed">
-            RNA Supplies is committed to revolutionizing how dental practices manage their supply costs. Our 
-            mission is to help your practice achieve significant cost savings while maintaining the highest quality 
-            standards.
+          <p className="text-gray-400 text-lg mb-8">
+            Save, Boost EBITDA, Elevate Valuation!
           </p>
+          
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold text-white mb-4">
+              Why It Matters to Your Practice
+            </h2>
+            <p className="text-gray-400 max-w-4xl mx-auto leading-relaxed">
+              RNA Supplies is committed to revolutionizing how dental practices manage their supply costs. Our 
+              mission is to help your practice achieve significant cost savings while maintaining the highest quality 
+              standards.
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* Main Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Main Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Left Side - Savings Chart */}
         <SaveOverTime />
         
@@ -141,7 +146,6 @@ const MagicMoney = () => {
         </div>
       </div>
     </div>
+    </div>
   );
 };
-
-export default MagicMoney;

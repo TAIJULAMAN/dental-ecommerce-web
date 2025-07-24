@@ -9,7 +9,7 @@ const SectionHeading = ({
   className = ""
 }) => {
   return (
-    <div className={`flex items-center justify-between bg-[#171716] py-10 ${className}`}>
+    <div className={`container mx-auto px-5 md:px-0 flex items-center justify-between bg-[#171716] py-10 ${className}`}>
       {/* Left side - Title */}
       <div className="flex items-center">
         {/* Blue accent bar */}
@@ -27,7 +27,7 @@ const SectionHeading = ({
       {showButton && (
         <button 
           onClick={onButtonClick}
-          className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
+          className="bg-[#136BFB] whitespace-nowrap cursor-pointer hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
         >
           {buttonText}
         </button>

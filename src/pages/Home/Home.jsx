@@ -16,7 +16,7 @@ import Subscribe from "./Subscribe/Subscribe";
 export default function Home() {
     return (
         <div className="bg-[#171716]">
-            <div className="container mx-auto">
+            <div className="">
                 <Slider />
                 <ExploreByCategory />
                 <HotSelling />

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const Slider = () => {
+export default function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const images = [
     '/slide.png',
-    '/slide1.png', 
+    '/slide1.png',
     '/slide2.png',
     '/slide3.png'
   ];
@@ -12,8 +12,8 @@ const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 4000);
-    
+    }, 3000);
+
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -22,20 +22,27 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative w-full container mx-auto rounded-xl">
+    <div
+      className="relative w-full pb-20"
+      style={{
+        backgroundImage: `url("/hero.png")`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       {/* Main slider container */}
-      <div className="relative  h-[650px] overflow-hidden">
+      <div className="container mx-auto h-[650px] overflow-hidden">
         {/* Slider content */}
-        <div 
+        <div
           className="flex transition-transform duration-500 ease-in-out h-full"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {images.map((image, index) => (
-              <div
+            <div
               key={index}
-                style={{ backgroundImage: `url("${image}")` }}
+              style={{ backgroundImage: `url("${image}")` }}
               className="w-full h-full flex-shrink-0 relative rounded-lg object-cover"
-              >
+            >
 
             </div>
           ))}
@@ -48,16 +55,13 @@ const Slider = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`transition-all duration-300 rounded-full ${
-              currentSlide === index
+            className={`transition-all duration-300 rounded-full ${currentSlide === index
                 ? 'w-8 h-3 bg-[#136BFB]'
                 : 'w-3 h-3 bg-neutral-700'
-            }`}
+              }`}
           />
         ))}
       </div>
     </div>
   );
 };
-
-export default Slider;

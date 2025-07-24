@@ -116,7 +116,7 @@ const AllCategory = () => {
               key={idx}
               title={category.title}
               image={category.image}
-              link={`/category/${category.slug}`}
+              link="/product-details"
             />
           ))}
         </div>

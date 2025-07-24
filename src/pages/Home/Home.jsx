@@ -18,12 +18,12 @@ export default function Home() {
         <div className="bg-[#171716]">
 <div className="container mx-auto">
                 {/* <Slider></Slider> */}
-            <ExploreByCategory></ExploreByCategory>
-            <HotSelling></HotSelling>
+            <ExploreByCategory />
+            <HotSelling />
 
-            <MagicMoney></MagicMoney>
-            <AboutUs></AboutUs>
-            <Subscribe></Subscribe>
+            <MagicMoney />
+            <AboutUs />
+            <Subscribe />
 </div>
         </div>
     );

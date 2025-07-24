@@ -58,8 +58,6 @@ const HotSelling = () => {
   image={product.image}
   title={product.title}
   description={product.description}
-  onAddToCart={() => alert(`Added to Cart: ${product.title}`)}
-  onWishlistClick={() => alert(`Wishlisted: ${product.title}`)}
 />
 
         ))}

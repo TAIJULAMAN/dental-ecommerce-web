@@ -3,6 +3,7 @@ import CartHeader from './CartHeader';
 import CartItem from './CartItem';
 import OrderSummary from './OrderSummary';
 import BreadCrumb from '../../components/shared/BreadCrumb';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -53,9 +54,9 @@ const ShoppingCart = () => {
     const handleDeleteSelected = () => {
         setProducts(products.filter(product => !product.selected));
     };
-
+    const navigate = useNavigate();
     const handleProceedToCheckout = () => {
-        console.log('Proceeding to checkout with:', selectedProducts);
+        navigate("/checkout");
     };
 
     return (
@@ -69,7 +70,7 @@ const ShoppingCart = () => {
                     <div className="lg:col-span-2">
                         <div className="bg-[#202020] rounded-lg p-5">
                             <CartHeader
-                                selectedCount={selectedProducts.length}
+                                selectedCount={selectedProducts?.length}
                                 totalItems={products.length}
                                 onSelectAll={handleSelectAll}
                                 onDeleteSelected={handleDeleteSelected}

@@ -6,8 +6,6 @@ const HotSellingCard = ({
   title,
   description,
   id,
-  onAddToCart,
-  onWishlistClick,
   cardWidth = 288,
   cardHeight = 280,
 }) => {
@@ -19,6 +17,10 @@ const HotSellingCard = ({
     description: description || 'Default Description',
     image: image || 'https://via.placeholder.com/300',
   });
+
+  const handleWishlistClick = () => {
+    navigate("/favorite");
+  };
 
   return (
     <div style={{ width: `${cardWidth}px` }}>
@@ -38,7 +40,7 @@ const HotSellingCard = ({
             src="https://i.ibb.co/rfxr1W8q/heart.png"
             alt="heart"
             className="cursor-pointer"
-            onClick={onWishlistClick}
+            onClick={handleWishlistClick}
           />
         </div>
       </div>
@@ -50,13 +52,13 @@ const HotSellingCard = ({
         <div className="flex justify-between">
           <button
             className="px-4 py-2 rounded-md text-[#136BFB] border border-[#136BFB] cursor-pointer"
-            onClick={() => navigate(`/Product-details/${id}`)}
+            onClick={() => navigate(`/Product-details`)}
           >
             View Details
           </button>
           <button
             className="bg-[#136BFB] px-4 py-2 rounded-md text-white border border-[#136BFB] cursor-pointer"
-            onClick={onAddToCart}
+            onClick={() => navigate(`/shopping-cart`)}
           >
             Add To Cart
           </button>

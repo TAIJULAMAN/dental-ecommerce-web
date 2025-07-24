@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AddressCard from './AddressCard';
 import { BiPlus } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddressSection() {
     const [addresses, setAddresses] = useState([
@@ -30,8 +31,9 @@ export default function AddressSection() {
         setAddresses(addresses.filter(addr => addr.id !== id));
     };
 
+    const navigate = useNavigate();
     const handleAddNew = () => {
-        console.log('Add new address');
+        navigate("/add-new-address")
     };
 
     return (

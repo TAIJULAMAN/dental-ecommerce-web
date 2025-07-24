@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import BreadCrumb from "../../../components/shared/BreadCrumb";
 import HotSellingCard from "../../../components/shared/HotSellingCard";
 import SectionHeading from "../../../components/shared/SectionHeading";
@@ -93,6 +93,8 @@ const Relatedproducts = [
 
   const incrementQuantity = () => setQuantity((prev) => prev + 1);
   const decrementQuantity = () => setQuantity((prev) => Math.max(1, prev - 1));
+
+  const navigate = useNavigate();
 
   return (
     <div className="mx-auto container text-white py-10">
@@ -227,7 +229,7 @@ const Relatedproducts = [
               <button className="bg-[#136BFB] hover:bg-[#0f5ed1] px-8 py-3 rounded-md font-medium text-white w-full sm:w-auto">
                 Buy Now
               </button>
-              <button className="border border-[#136BFB] text-[#136BFB] px-8 py-3 rounded-md font-medium w-full sm:w-auto">
+              <button onClick={() => navigate("/shopping-cart")} className="border border-[#136BFB] text-[#136BFB] px-8 py-3 rounded-md font-medium w-full sm:w-auto">
                 Add To Cart
               </button>
             </div>

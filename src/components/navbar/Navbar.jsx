@@ -124,7 +124,7 @@ export default function Navbar() {
               Product
             </Link>
             <Link
-              to="#"
+              to="/all-category"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Category
@@ -146,26 +146,6 @@ export default function Navbar() {
               className="text-white hover:text-gray-300 transition-colors"
             >
               Blog
-            </Link>
-            <Link
-              to="/favorite"
-              className="text-white hover:text-gray-300 transition-colors"
-            >
-              Favorite
-            </Link>
-
-
-             <Link
-              to="/myorders"
-              className="text-white hover:text-gray-300 transition-colors"
-            >
-              My Orders
-            </Link>
-            <Link
-              to="/shopping-cart"
-              className="text-white hover:text-gray-300 transition-colors"
-            >
-              Shopping Cart
             </Link>
 
 
@@ -210,7 +190,14 @@ export default function Navbar() {
                       My Profile
                     </Link>
                     <Link
-                      to="/settings"
+                     to="/myorders"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      My Orders
+                    </Link>
+                    <Link
+                      to="/favorite"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       onClick={() => setIsDropdownOpen(false)}
                     >
@@ -321,7 +308,7 @@ export default function Navbar() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/all-category"
                   className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
                   onClick={toggleMenu}
                 >

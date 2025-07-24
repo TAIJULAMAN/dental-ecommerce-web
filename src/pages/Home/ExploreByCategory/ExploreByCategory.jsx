@@ -48,7 +48,7 @@ const ExploreByCategory = () => {
           key={idx}
           title={category.title}
           image={category.image}
-          link={`/Product-details/${category.id}`}
+            link="/product-details"
         />
         ))}
       </div>

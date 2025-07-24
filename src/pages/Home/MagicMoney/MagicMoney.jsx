@@ -6,7 +6,7 @@ export default function MagicMoney() {
     <div className="w-full bg-[#171716] min-h-screen relative">
       {/* Blue shadow/glow effect at center */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-96 h-96 bg-[#136BFB] opacity-20 blur-3xl rounded-full"></div>
+        <div className="w-[500px] h-[800px] bg-[#136BFB] opacity-20 blur-3xl rounded-full"></div>
       </div>
       <div className="container mx-auto text-white p-8 min-h-screen relative z-10">
         {/* Header Section */}

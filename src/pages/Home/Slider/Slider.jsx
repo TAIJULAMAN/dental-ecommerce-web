@@ -50,7 +50,7 @@ export default function Slider() {
       </div>
 
       {/* indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+      <div className="absolute bottom-28 left-1/2 -translate-x-1/2 flex gap-3">
         {images.map((_, index) => (
           <button
             key={index}

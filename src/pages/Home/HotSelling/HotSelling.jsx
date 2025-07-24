@@ -1,78 +1,67 @@
 import React from 'react'
 import SectionHeading from '../../../components/shared/SectionHeading'
+import HotSellingCard from '../../../components/shared/HotSellingCard'
+import { useNavigate } from 'react-router-dom'
 
 const products = [
   {
+    id: "12346789",
     title: 'Penora 200',
     image: 'https://i.ibb.co/nsfm8xgd/4de2c5b7-3921-48c0-8683-f1a166734214.jpg',
     description: 'High-speed titanium handpiece with quattro spray, ergonomic grip',
   },
   {
+    id: "22346789",
     title: 'Walden Tesla Air Rotor',
     image: 'https://i.ibb.co/Wvr7BDR9/selling2.png',
     description: 'High-speed titanium handpiece with quattro spray, ergonomic grip',
   },
   {
+    id: "32346789",
     title: 'Endo Excellence canal Commander...',
     image: 'https://i.ibb.co/gb6H9kgd/selling3.png',
     description: 'High-speed titanium handpiece with quattro spray, ergonomic grip',
   },
   {
+    id: "42346789",
     title: 'Nova Compo Plus',
     image: 'https://i.ibb.co/7dwxVDfq/selling4.png',
     description: 'High-speed titanium handpiece with quattro spray, ergonomic grip',
   },
   {
+    id: "52346789",
     title: 'B&E Etch-37',
     image: 'https://i.ibb.co/2YpB12Kz/selling5.png',
     description: 'High-speed titanium handpiece with quattro spray, ergonomic grip',
   },
 ]
 
+
 const HotSelling = () => {
+  const navigate = useNavigate();
   return (
     <div className='pb-10'>
       <SectionHeading
         title='Hot Selling'
         buttonText='View All'
-        onButtonClick={() => console.log('clicked')}
+        onButtonClick={() => {
+          navigate("hot-selling")
+        }}
       />
 
       {/* cards */}
       <div className='flex gap-5 flex-wrap justify-center'>
         {products.map((product, idx) => (
-          <div key={idx} className='w-[288px]'>
-            {/* img part */}
-            <div className='rounded-md overflow-hidden relative w-full h-[280px]'>
-              <img
-                src={product.image}
-                alt={product.title}
-                className='object-cover w-full h-full'
-              />
-              {/* heart icon */}
-              <div className='absolute z-10 top-2 right-2'>
-                <img
-                  src='https://i.ibb.co/rfxr1W8q/heart.png'
-                  alt='heart'
-                  className='cursor-pointer'
-                />
-              </div>
-            </div>
+<HotSellingCard
+  key={idx}
+  id={product.id}
+  image={product.image}
+  title={product.title}
+  description={product.description}
+  onAddToCart={() => alert(`Added to Cart: ${product.title}`)}
+  onWishlistClick={() => alert(`Wishlisted: ${product.title}`)}
+/>
 
-            {/* text and buttons */}
-            <div className='flex flex-col gap-4 mt-4'>
-              <p className='text-[#FCFBF8] text-lg'>{product.title}</p>
-              <p className='text-[#9F9C96] text-sm'>{product.description}</p>
-              <div className='flex justify-between'>
-                <button className='px-4 py-2 rounded-md text-[#136BFB] border border-[#136BFB] cursor-pointer'>
-                  View Details
-                </button>
-                <button className='bg-[#136BFB] px-4 py-2 rounded-md text-white border border-[#136BFB] cursor-pointer'>
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-          </div>
         ))}
       </div>
 

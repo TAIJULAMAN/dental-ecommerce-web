@@ -27,8 +27,14 @@ import OrderDetails from "../pages/MyOrder/OrderDetails";
 import EditProfile from "../pages/profile/EditProfile";
 import ChangePassword from "../pages/profile/ChangePassword";
 import ShoppingCart from "../pages/shoppingCart/ShoppingCart";
+import AllCategory from "../pages/Home/ExploreByCategory/AllCategory/AllCategory";
+import ProductDetails from "../pages/Home/ProductDetails/ProductDetails";
+import AllHotSelling from "../pages/Home/HotSelling/AllHotSelling/AllHotSelling";
+import Product from "../pages/Product/Product";
+
 import Checkout from "../pages/checkout/Checkout";
 import AddNewAddrees from "../pages/checkout/AddNewAddrees";
+
 
 
 
@@ -40,6 +46,24 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "all-category",
+        element: <AllCategory></AllCategory>,
+      },
+      {
+        path: "Product-details/:id",
+        element: <ProductDetails></ProductDetails>
+      },
+      {
+        path: "hot-selling",
+        element: <AllHotSelling></AllHotSelling>
+      },
+      //product
+      {
+        path: "/product",
+        element: <Product></Product>
+
       },
       // footer pages
       {

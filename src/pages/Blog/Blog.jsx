@@ -1,7 +1,8 @@
 import React from 'react'
 import SectionHeading from '../../components/shared/SectionHeading'
 import { MdOutlineDateRange } from 'react-icons/md'
-import { useNavigate } from 'react-router-dom'
+import BlogCard from '../../components/shared/BlogCard'
+// import { useNavigate } from 'react-router-dom'
 
 const Blog = () => {
   const posts = [
@@ -91,7 +92,7 @@ const Blog = () => {
     },
   ]
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
 
   return (
@@ -101,33 +102,14 @@ const Blog = () => {
       {/* cards */}
       <div className='flex gap-5 flex-wrap space-y-5'>
         {posts.map((post, idx) => (
-          <div
-            key={idx}
-            className='border-[#6F6F6F] border-[1.5px] bg-[#1c1c1c] rounded-md overflow-hidden max-w-[365px] cursor-pointer'
-            onClick={()=>{
-              navigate(`/blog/details/1234`);
-            }}
-          >
-            <div className='overflow-hidden'>
-              <img
-                src={post.image}
-                alt={post.title}
-                className='w-full h-[240px] object-cover '
-              />
-            </div>
-
-            {/* content */}
-            <div className='p-5 flex flex-col gap-2'>
-              <p className='text-white text-xl font-semibold cursor-pointer'>
-                {post.title}
-              </p>
-              <p className='text-[#9F9C96] text-sm'>{post.description}</p>
-              <div className='text-[#9F9C96] text-sm mt-2 flex items-center gap-2'>
-                <MdOutlineDateRange className='text-[#9F9C96] text-lg' /> 
-                <span>{post.date}</span>
-              </div>
-            </div>
-          </div>
+ <BlogCard
+          key={idx}
+          image={post.image}
+          title={post.title}
+          description={post.description}
+          date={post.date}
+          blogId={post.id}
+        />
         ))}
       </div>
 

@@ -27,6 +27,8 @@ import OrderDetails from "../pages/MyOrder/OrderDetails";
 import EditProfile from "../pages/profile/EditProfile";
 import ChangePassword from "../pages/profile/ChangePassword";
 import ShoppingCart from "../pages/shoppingCart/ShoppingCart";
+import Checkout from "../pages/checkout/Checkout";
+import AddNewAddrees from "../pages/checkout/AddNewAddrees";
 
 
 
@@ -73,6 +75,14 @@ const router = createBrowserRouter([
       {
         path: "/shopping-cart",
         element: <ShoppingCart />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "/add-new-address",
+        element: <AddNewAddrees />,
       },
       {
         path: "/notification",

@@ -15,13 +15,13 @@ const CategoryCard = ({ image, title, link, onClick }) => {
   return (
     <div
       onClick={handleClick}
-      className="border-[#6F6F6F] border-[1.5px] rounded-md overflow-hidden cursor-pointer hover:shadow-lg transition"
+      className="border-[#6F6F6F] border-[1.5px] rounded-md overflow-hidden cursor-pointer"
     >
       <div className="overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="w-[288px] h-[280px] object-cover"
+          className="w-full h-[280px] object-cover"
         />
       </div>
       <div className="flex justify-between p-5 items-center">

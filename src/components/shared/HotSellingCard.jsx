@@ -5,9 +5,8 @@ const HotSellingCard = ({
   image,
   title,
   description,
-  id,
   cardWidth = 288,
-  cardHeight = 280,
+
 }) => {
   const navigate = useNavigate();
 
@@ -23,16 +22,15 @@ const HotSellingCard = ({
   };
 
   return (
-    <div style={{ width: `${cardWidth}px` }}>
+    <div>
       {/* Image Section */}
       <div
-        className="rounded-md overflow-hidden relative w-full"
-        style={{ height: `${cardHeight}px` }}
+        className="rounded-md overflow-hidden cursor-pointer"
       >
         <img
           src={cardData.image}
           alt={cardData.title}
-          className="object-cover w-full h-full"
+          className="w-full h-[280px] object-cover"
         />
         {/* Heart Icon */}
         <div className="absolute z-10 top-2 right-2">

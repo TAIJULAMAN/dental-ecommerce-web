@@ -50,15 +50,15 @@ const HotSelling = () => {
       />
 
       {/* cards */}
-      <div className='flex gap-5 flex-wrap justify-center'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 container mx-auto px-5 md:px-0'>
         {products.map((product, idx) => (
-<HotSellingCard
-  key={idx}
-  id={product.id}
-  image={product.image}
-  title={product.title}
-  description={product.description}
-/>
+          <HotSellingCard
+            key={idx}
+            id={product.id}
+            image={product.image}
+            title={product.title}
+            description={product.description}
+          />
 
         ))}
       </div>

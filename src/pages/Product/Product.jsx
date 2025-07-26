@@ -168,7 +168,7 @@ export default function Product() {
 
 
       <div className="mx-auto container text-white py-10 px-4">
-        <BreadCrumb title={`Home`} name={`Product`} />
+        <BreadCrumb title={`Product`} name={`Home`} />
         <SectionHeading title="All Products" showButton={false} />
         {/* Filter and products */}
         <div className="grid grid-cols-1 md:grid-cols-4 min-h-screen gap-6">

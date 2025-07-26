@@ -118,7 +118,7 @@ export default function Navbar() {
               Home
             </Link>
             <Link
-              to="product"
+              to="/product"
               className="text-white hover:text-gray-300 transition-colors"
             >
               Product
@@ -190,7 +190,7 @@ export default function Navbar() {
                       My Profile
                     </Link>
                     <Link
-                     to="/myorders"
+                      to="/myorders"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       onClick={() => setIsDropdownOpen(false)}
                     >
@@ -254,9 +254,8 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay and Content */}
       <div
-        className={`fixed inset-0 z-40 transition-opacity duration-300 ${
-          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 transition-opacity duration-300 ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         onClick={toggleMenu}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -264,9 +263,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`mobile-menu-container fixed top-0 left-0 h-full w-4/5 max-w-xs bg-[#171716] z-50 transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`mobile-menu-container fixed top-0 left-0 h-full w-4/5 max-w-xs bg-[#171716] z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="p-6 h-full flex flex-col">
           <div className="flex justify-between items-center mb-8">
@@ -287,71 +285,109 @@ export default function Navbar() {
           </div>
 
           <nav className="flex-1 overflow-y-auto">
-            <ul className="space-y-6">
+            {/* <ul className="space-y-5 flex flex-col">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/"
                   className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
                   onClick={toggleMenu}
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/product"
                   className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
                   onClick={toggleMenu}
                 >
                   Product
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/all-category"
                   className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
                   onClick={toggleMenu}
                 >
                   Category
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/procedure-guide"
                   className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
                   onClick={toggleMenu}
                 >
                   Procedure Guide
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/pharmaceuticals"
                   className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
                   onClick={toggleMenu}
                 >
                   Pharmaceuticals
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/blog"
                   className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
                   onClick={toggleMenu}
                 >
                   Blog
-                </a>
+                </Link>
               </li>
-                <li>
-                <a
-                  href="/favorite"
-                  className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Favorite
-                </a>
-              </li>
-            </ul>
+
+            </ul> */}
+            <div className="flex flex-col space-y-5">
+            <Link
+              to="/"
+              className="text-white hover:text-gray-300 transition-colors"
+              onClick={toggleMenu}
+            >
+              Home
+            </Link>
+            <Link
+              to="/product"
+              className="text-white hover:text-gray-300 transition-colors"
+              onClick={toggleMenu}
+            >
+              Product
+            </Link>
+            <Link
+              to="/all-category"
+              className="text-white hover:text-gray-300 transition-colors"
+              onClick={toggleMenu}
+            >
+              Category
+            </Link>
+            <Link
+              to="/procedure-guide"
+              className="text-white hover:text-gray-300 transition-colors"
+              onClick={toggleMenu}
+            >
+              Procedure Guide
+            </Link>
+            <Link
+              to="/pharmaceuticals"
+              className="text-white hover:text-gray-300 transition-colors"
+              onClick={toggleMenu}
+            >
+              Pharmaceuticals
+            </Link>
+            <Link
+              to="/blog"
+              className="text-white hover:text-gray-300 transition-colors"
+              onClick={toggleMenu}
+            >
+              Blog
+            </Link>
+
+
+          </div>
 
             <div className="mt-8 pt-6 border-t border-gray-700">
               <div className="flex flex-col space-y-4">

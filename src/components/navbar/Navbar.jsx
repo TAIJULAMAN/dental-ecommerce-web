@@ -87,9 +87,9 @@ export default function Navbar() {
         {/* Mobile Header */}
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="w-[80px] h-[60px] flex items-center justify-center md:w-[100px] md:h-[70px]">
+          <Link to="/" className="w-[80px] h-[60px] flex items-center justify-center md:w-[100px] md:h-[70px]">
             <img src="/logo.svg" alt="company logo" className="h-full w-auto" />
-          </div>
+          </Link>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center space-x-3 md:hidden">
@@ -190,7 +190,7 @@ export default function Navbar() {
                       My Profile
                     </Link>
                     <Link
-                      to="/myorders"
+                      to="/my-orders"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       onClick={() => setIsDropdownOpen(false)}
                     >

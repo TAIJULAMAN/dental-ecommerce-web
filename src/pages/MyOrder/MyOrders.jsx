@@ -4,6 +4,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { VscSettings } from "react-icons/vsc";
 import BreadCrumb from "../../components/shared/BreadCrumb";
+import { useNavigate } from "react-router-dom";
 
 
 export default function AllOrder() {
@@ -112,6 +113,7 @@ export default function AllOrder() {
     };
     return styles[status] || "bg-gray-100 text-gray-800";
   };
+  const navigate = useNavigate();
   const columns = [
     { title: "Order Id", dataIndex: "key", key: "key" },
 
@@ -129,7 +131,6 @@ export default function AllOrder() {
         </div>
       ),
     },
-    // { title: "Products", dataIndex: "products", key: "products" },
     { title: "Quantity", dataIndex: "qty", key: "qty" },
     { title: "Price", dataIndex: "total", key: "total" },
     {
@@ -155,11 +156,12 @@ export default function AllOrder() {
             onClick={() => {
               setSelectedUser(record);
               setUserDetailsModal(true);
+              navigate("/order-details");
             }}
             className="border border-[#3b3b3b] text-[#3b3b3b] rounded-lg p-[6px]"
             title="View Details"
           >
-            <IoEyeOutline className="w-6 h-6 text-[#3b3b3b]" />
+            <IoEyeOutline className="w-5 h-5 text-[#3b3b3b]" />
           </button>
         </div>
       ),

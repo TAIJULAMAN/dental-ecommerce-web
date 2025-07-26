@@ -1,5 +1,6 @@
 import React from 'react';
 import { RiDeleteBinLine } from 'react-icons/ri';
+import Checkbox from '../../components/shared/Checkbox';
 
 const CartHeader = ({
     selectedCount,
@@ -10,12 +11,7 @@ const CartHeader = ({
     return (
         <div className="flex items-center justify-between mb-5 bg-neutral-700 rounded-lg p-2">
             <div className="flex items-center gap-3">
-                <input
-                    type="checkbox"
-                    checked={allSelected}
-                    onChange={onSelectAll}
-                    className="w-5 h-5 border border-[#136BFB]"
-                />
+                <Checkbox isSelected={allSelected} onSelect={onSelectAll} />
                 <span className="text-gray-300 font-medium">Select all</span>
             </div>
 

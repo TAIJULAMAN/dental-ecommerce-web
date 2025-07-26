@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
+import Checkbox from '../../components/shared/Checkbox';
 
 const CartItem = ({
     id,
@@ -21,12 +22,7 @@ const CartItem = ({
         <div className="flex items-center gap-4 py-4 border-b border-gray-600 last:border-b-0">
             {/* Checkbox */}
             <div className="flex-shrink-0">
-                <input
-                    type="checkbox"
-                    checked={isSelected}
-                    onChange={() => onToggleSelect(id)}
-                    className="w-5 h-5 text-blue-500 border-[#136BFB] rounded"
-                />
+                <Checkbox isSelected={isSelected} onSelect={() => onToggleSelect(id)} />
             </div>
 
             {/* Product Image */}

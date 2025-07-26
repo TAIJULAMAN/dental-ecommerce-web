@@ -171,9 +171,9 @@ export default function Product() {
         <BreadCrumb title={`Product`} name={`Home`} />
         <SectionHeading title="All Products" showButton={false} />
         {/* Filter and products */}
-        <div className="grid grid-cols-1 md:grid-cols-4 min-h-screen gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 min-h-screen gap-5">
           {/* Filter Section */}
-          <div className="bg-gray-800 p-4 rounded-lg">
+          <div className="bg-gray-800 px-5 py-10  rounded-lg h-[100vh]">
             <div className="space-y-6">
               {/* Price Filter */}
               <div className="p-4  w-full max-w-xs border-b border-[#DBDBDB]">
@@ -321,11 +321,6 @@ export default function Product() {
                   </ul>
                 )}
               </div>
-
-              {/* Reset Filters Button */}
-              <button className="w-full py-2 bg-gray-700 hover:bg-gray-600 rounded-md mt-4 text-white">
-                Reset Filters
-              </button>
             </div>
           </div>
 

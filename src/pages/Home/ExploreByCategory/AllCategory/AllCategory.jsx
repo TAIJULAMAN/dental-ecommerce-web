@@ -110,13 +110,13 @@ const AllCategory = () => {
         ></SectionHeading>
 
         {/* cards */}
-        <div className="flex gap-5 flex-wrap justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 container mx-auto px-5 md:px-0">
           {categories.map((category, idx) => (
             <CategoryCard
               key={idx}
               title={category.title}
               image={category.image}
-              link="/product-details"
+              link="/product"
             />
           ))}
         </div>

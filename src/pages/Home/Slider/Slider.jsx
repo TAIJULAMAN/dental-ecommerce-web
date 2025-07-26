@@ -12,7 +12,7 @@ export default function Slider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -26,13 +26,13 @@ export default function Slider() {
       className="relative w-full pb-20"
       style={{
         backgroundImage: `url("/hero.png")`,
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
+        objectPosition: 'center',
         backgroundPosition: 'center',
+        minHeight: '750px'
       }}
     >
-      {/* Main slider container */}
-      <div className="container mx-auto h-[650px] overflow-hidden">
-        {/* Slider content */}
+      <div className="container mx-auto h-[750px] overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out h-full"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -56,8 +56,8 @@ export default function Slider() {
             key={index}
             onClick={() => goToSlide(index)}
             className={`transition-all duration-300 rounded-full ${currentSlide === index
-                ? 'w-8 h-3 bg-[#136BFB]'
-                : 'w-3 h-3 bg-neutral-700'
+              ? 'w-8 h-3 bg-[#136BFB]'
+              : 'w-3 h-3 bg-neutral-700'
               }`}
           />
         ))}

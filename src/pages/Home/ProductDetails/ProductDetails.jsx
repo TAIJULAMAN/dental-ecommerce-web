@@ -4,9 +4,6 @@ import BreadCrumb from "../../../components/shared/BreadCrumb";
 import HotSellingCard from "../../../components/shared/HotSellingCard";
 import SectionHeading from "../../../components/shared/SectionHeading";
 import {
-  FaShareAlt,
-  FaHeart,
-  FaRegHeart,
   FaTruck,
   FaUndo,
   FaCheck,
@@ -15,7 +12,6 @@ import {
 
 const ProductDetails = () => {
   const { id } = useParams();
-  // const [isWishlisted, setIsWishlisted] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const IsLogin = false;
 
@@ -47,41 +43,38 @@ const ProductDetails = () => {
     },
   ];
 
-const Relatedproducts = [
-  {
-    id: 1,
-    title: "Penora 200",
-    image: "https://i.ibb.co/nsfm8xgd/4de2c5b7-3921-48c0-8683-f1a166734214.jpg",
-    description: "High-speed titanium handpiece with quattro spray, ergonomic grip",
-  },
-  {
-    id: 2,
-    title: "Walden Tesla Air Rotor",
-    image: "https://i.ibb.co/Wvr7BDR9/selling2.png",
-    description: "High-speed titanium handpiece with quattro spray, ergonomic grip",
-  },
-  {
-    id: 3,
-    title: "Endo Excellence canal Commander...",
-    image: "https://i.ibb.co/gb6H9kgd/selling3.png",
-    description: "High-speed titanium handpiece with quattro spray, ergonomic grip",
-  },
-  {
-    id: 4,
-    title: "Nova Compo Plus",
-    image: "https://i.ibb.co/7dwxVDfq/selling4.png",
-    description: "High-speed titanium handpiece with quattro spray, ergonomic grip",
-  },
-  {
-    id: 5,
-    title: "B&E Etch-37",
-    image: "https://i.ibb.co/2YpB12Kz/selling5.png",
-    description: "High-speed titanium handpiece with quattro spray, ergonomic grip",
-  },
-];
-
-
-  console.log(id);
+  const Relatedproducts = [
+    {
+      id: 1,
+      title: "Penora 200",
+      image: "https://i.ibb.co/nsfm8xgd/4de2c5b7-3921-48c0-8683-f1a166734214.jpg",
+      description: "High-speed titanium handpiece with quattro spray, ergonomic grip",
+    },
+    {
+      id: 2,
+      title: "Walden Tesla Air Rotor",
+      image: "https://i.ibb.co/Wvr7BDR9/selling2.png",
+      description: "High-speed titanium handpiece with quattro spray, ergonomic grip",
+    },
+    {
+      id: 3,
+      title: "Endo Excellence canal Commander...",
+      image: "https://i.ibb.co/gb6H9kgd/selling3.png",
+      description: "High-speed titanium handpiece with quattro spray, ergonomic grip",
+    },
+    {
+      id: 4,
+      title: "Nova Compo Plus",
+      image: "https://i.ibb.co/7dwxVDfq/selling4.png",
+      description: "High-speed titanium handpiece with quattro spray, ergonomic grip",
+    },
+    {
+      id: 5,
+      title: "B&E Etch-37",
+      image: "https://i.ibb.co/2YpB12Kz/selling5.png",
+      description: "High-speed titanium handpiece with quattro spray, ergonomic grip",
+    },
+  ];
   const product = Product[0];
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
   const [showModal, setShowModal] = useState(false);
@@ -123,9 +116,8 @@ const Relatedproducts = [
                 src={img}
                 alt={`thumb-${i}`}
                 onClick={() => setSelectedImage(img)}
-                className={`w-20 h-20 rounded-md cursor-pointer object-cover ${
-                  selectedImage === img ? "ring-2 ring-blue-500" : ""
-                }`}
+                className={`w-20 h-20 rounded-md cursor-pointer object-cover ${selectedImage === img ? "ring-2 ring-blue-500" : ""
+                  }`}
               />
             ))}
           </div>
@@ -174,7 +166,10 @@ const Relatedproducts = [
                     {product.price}
                   </span>
                 ) : (
-                  <span className="text-[#136BFB] font-medium  cursor-pointer">
+                  <span 
+                    className="text-[#136BFB] font-medium  cursor-pointer hover:underline"
+                    onClick={() => navigate("/login")}
+                  >
                     Log In or Sign Up For view price
                   </span>
                 )}
@@ -182,16 +177,6 @@ const Relatedproducts = [
 
               <div className="border-b border-[#3a3a3a] pt-2 w-full" />
             </div>
-
-            {/* Icons */}
-            {/* <div className="flex gap-4 pt-2">
-          <button className="text-white text-lg">
-            <FaRegHeart className="hover:text-red-500" />
-          </button>
-          <button className="text-white text-lg">
-            <FaShareAlt className="hover:text-[#136BFB]" />
-          </button>
-        </div> */}
           </div>
           {/* Bottom Row */}
           <div className="">
@@ -210,7 +195,7 @@ const Relatedproducts = [
                 <input
                   type="number"
                   min={1}
-                  
+
                   value={quantity}
                   onChange={handleQuantityChange}
                   className="w-16 px-3 py-1 rounded-md bg-transparent border border-gray-500 text-white text-center"
@@ -238,7 +223,7 @@ const Relatedproducts = [
           {/* Mobile Login Reminder */}
           {!IsLogin && (
             <div className="sm:hidden mt-4">
-              <button className="w-full py-3 bg-[#2e2e2e] text-[#136BFB] rounded-md">
+              <button onClick={() => navigate("/login")} className="w-full py-3 bg-[#2e2e2e] text-[#136BFB] rounded-md">
                 Log In or Sign Up To View Price
               </button>
             </div>
@@ -246,34 +231,34 @@ const Relatedproducts = [
         </div>
 
 
-         <div className=" text-white p-0 space-y-4 max-w-md mx-auto">
-      {/* Card 1 */}
-      <div className="flex items-center gap-4 p-4 border border-gray-700 rounded-md">
-        <FaTruck className="text-gray-400 text-2xl" />
-        <div>
-          <h3 className="font-semibold text-white">Fast Delivery</h3>
-          <p className="text-sm text-gray-400">Enter your Delivery Address</p>
-        </div>
-      </div>
+        <div className=" text-white p-0 space-y-4 max-w-md mx-auto">
+          {/* Card 1 */}
+          <div className="flex items-center gap-4 p-4 border border-gray-700 rounded-md">
+            <FaTruck className="text-gray-400 text-2xl" />
+            <div>
+              <h3 className="font-semibold text-white">Fast Delivery</h3>
+              <p className="text-sm text-gray-400">Enter your Delivery Address</p>
+            </div>
+          </div>
 
-      {/* Card 2 */}
-      <div className="flex items-center gap-4 p-4 border border-gray-700 rounded-md">
-        <FaUndo className="text-gray-400 text-2xl" />
-        <div>
-          <h3 className="font-semibold text-white">Return Delivery</h3>
-          <p className="text-sm text-gray-400">Free 30 Days Delivery Returns.</p>
-        </div>
-      </div>
+          {/* Card 2 */}
+          <div className="flex items-center gap-4 p-4 border border-gray-700 rounded-md">
+            <FaUndo className="text-gray-400 text-2xl" />
+            <div>
+              <h3 className="font-semibold text-white">Return Delivery</h3>
+              <p className="text-sm text-gray-400">Free 30 Days Delivery Returns.</p>
+            </div>
+          </div>
 
-      {/* Card 3 */}
-      <div className="flex items-center gap-4 p-4 border border-gray-700 rounded-md">
-        <FaMedal className="text-gray-400 text-2xl" />
-        <div>
-          <h3 className="font-semibold text-white">Best Product Quality</h3>
-          <p className="text-sm text-gray-400">Customer Service Product</p>
+          {/* Card 3 */}
+          <div className="flex items-center gap-4 p-4 border border-gray-700 rounded-md">
+            <FaMedal className="text-gray-400 text-2xl" />
+            <div>
+              <h3 className="font-semibold text-white">Best Product Quality</h3>
+              <p className="text-sm text-gray-400">Customer Service Product</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
       </div>
 
       {/* Modal for Enlarged Image */}
@@ -299,7 +284,7 @@ const Relatedproducts = [
       {/* Related Products */}
       <div className="mt-16">
         <SectionHeading title="Related Products" showButton={false} />
-        <div className="flex gap-5 flex-wrap justify-center mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 min-h-screen gap-5 mt-5">
           {Relatedproducts.map((prod, idx) => (
             <HotSellingCard
               key={idx}

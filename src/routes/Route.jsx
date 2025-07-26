@@ -23,7 +23,6 @@ import AiSupport from "../pages/aiSupport/AiSupport";
 import Favorite from "../pages/Favorite/Favorite";
 import MyOrders from "../pages/MyOrder/MyOrders";
 import OrderDetails from "../pages/MyOrder/OrderDetails";
-
 import EditProfile from "../pages/profile/EditProfile";
 import ChangePassword from "../pages/profile/ChangePassword";
 import ShoppingCart from "../pages/shoppingCart/ShoppingCart";
@@ -31,7 +30,6 @@ import AllCategory from "../pages/Home/ExploreByCategory/AllCategory/AllCategory
 import ProductDetails from "../pages/Home/ProductDetails/ProductDetails";
 import AllHotSelling from "../pages/Home/HotSelling/AllHotSelling/AllHotSelling";
 import Product from "../pages/Product/Product";
-
 import Checkout from "../pages/checkout/Checkout";
 import AddNewAddrees from "../pages/checkout/AddNewAddrees";
 
@@ -143,12 +141,12 @@ const router = createBrowserRouter([
       },
       
       {
-        path: "/myorders",
+        path: "/my-orders",
         element: <MyOrders></MyOrders>
       },
       {
-        path: "/myorders/details/:id",
-        element: <OrderDetails></OrderDetails>
+        path: "/order-details",
+        element: <OrderDetails />
       },
       // auth pages
       {

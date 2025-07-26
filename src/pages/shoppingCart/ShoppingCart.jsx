@@ -70,8 +70,6 @@ const ShoppingCart = () => {
                     <div className="lg:col-span-2">
                         <div className="bg-[#202020] rounded-lg p-5">
                             <CartHeader
-                                selectedCount={selectedProducts?.length}
-                                totalItems={products.length}
                                 onSelectAll={handleSelectAll}
                                 onDeleteSelected={handleDeleteSelected}
                                 allSelected={allSelected}

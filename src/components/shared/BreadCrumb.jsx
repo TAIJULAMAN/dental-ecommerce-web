@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function BreadCrumb({ name, title }) {
   return (
 
-      <ul className="flex items-center justify-start font-[sans-serif] py-5 pb-10 gap-2">
+      <ul className="flex items-center justify-start font-[sans-serif] py-5 gap-2">
         <li className="relative group">
           <Link to="/" className="text-[#9F9C96] cursor-pointer text-sm hover:text-[#136BFB] transition-colors duration-300">
             {name}

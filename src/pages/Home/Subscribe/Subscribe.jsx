@@ -22,10 +22,10 @@ export default function Subscribe() {
             <input
               type="email"
               placeholder="Enter Your Email"
-              className="w-full px-6 py-4 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
+              className="w-full px-4 py-2 bg-white rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
             />
           </div>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 px-8 rounded-lg transition-colors duration-200 shadow-md text-lg w-full max-w-[20rem]">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-md text-lg w-full px-4 py-2 max-w-[20rem]">
             Subscribe!
           </button>
         </div>

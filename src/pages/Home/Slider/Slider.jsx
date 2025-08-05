@@ -86,7 +86,7 @@ export default function Slider({
               style={{ 
                 backgroundImage: `url("${image}")`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundPosition: 'bottom',
                 backgroundRepeat: 'no-repeat'
               }}
               className="w-full h-full flex-shrink-0 relative rounded-lg"

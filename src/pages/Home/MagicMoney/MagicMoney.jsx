@@ -123,7 +123,7 @@ export default function MagicMoney() {
                 ) : item.isResult ? (
                   <div
                     key={idx}
-                    className="flex flex-col items-center justify-center border border-[#6F6F6F] w-[150px] h-[160px] rounded-lg"
+                    className="flex flex-col items-center justify-center border border-[#6F6F6F] w-[280px] md:w-[150px] h-[160px] rounded-lg"
                   >
                     <div className="text-green-400 text-2xl font-bold">{item.value}</div>
                     <div className="text-gray-400 text-sm">{item.label}</div>
@@ -131,7 +131,7 @@ export default function MagicMoney() {
                 ) : (
                   <div
                     key={idx}
-                    className="flex flex-col items-center border border-[#6F6F6F] w-[150px] h-[160px] p-3 rounded-lg"
+                    className="flex flex-col items-center justify-center border border-[#6F6F6F] mx-auto w-[280px] md:w-[150px] h-[160px] p-3 rounded-lg"
                   >
                     <div className={`w-10 h-10 ${item.bg} rounded-full flex items-center justify-center mb-2`}>
                       <img src={item.icon} alt={item.label} className="w-8 h-8" />

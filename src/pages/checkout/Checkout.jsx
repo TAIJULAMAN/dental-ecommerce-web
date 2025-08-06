@@ -9,6 +9,17 @@ export default function Checkout() {
 
     const [isSelected, setIsSelected] = useState("")
     const [selectedPayment, setSelectedPayment] = useState("")
+    const [showEditModal, setShowEditModal] = useState(false)
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
+    const [showSuccessModal, setShowSuccessModal] = useState(false)
+    const [selectedAddress, setSelectedAddress] = useState(null)
+    const [editFormData, setEditFormData] = useState({
+        name: "",
+        type: "",
+        mobile: "",
+        address: "",
+        location: ""
+    })
 
     const addresses = [
         {
@@ -74,10 +85,29 @@ export default function Checkout() {
                                         </div>
                                     </div>
                                     <div className="flex space-x-2">
-                                        <button className="text-blue-400 hover:text-blue-300">
+                                        <button
+                                            onClick={() => {
+                                                setSelectedAddress(address)
+                                                setEditFormData({
+                                                    name: address.name,
+                                                    type: address.type,
+                                                    mobile: address.mobile,
+                                                    address: address.address,
+                                                    location: address.location
+                                                })
+                                                setShowEditModal(true)
+                                            }}
+                                            className="text-blue-400 hover:text-blue-300"
+                                        >
                                             <TbUserEdit className="w-4 h-4" />
                                         </button>
-                                        <button className="text-red-400 hover:text-red-300">
+                                        <button
+                                            onClick={() => {
+                                                setSelectedAddress(address)
+                                                setShowDeleteModal(true)
+                                            }}
+                                            className="text-red-400 hover:text-red-300"
+                                        >
                                             <RiDeleteBinLine className="w-4 h-4" />
                                         </button>
                                     </div>
@@ -163,13 +193,207 @@ export default function Checkout() {
                         </div>
 
                         <div className="flex justify-center w-1/2 mx-auto">
-                            <button className="w-full bg-[#136BFB] text-white py-3 mt-6 rounded-lg font-semibold">
+                            <button
+                                onClick={() => setShowSuccessModal(true)}
+                                className="w-full bg-[#136BFB] text-white py-3 mt-6 rounded-lg font-semibold hover:bg-[#0f5ae6] transition-colors"
+                            >
                                 Place Order
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* Edit Modal */}
+            {showEditModal && (
+                <div className="fixed inset-0 opacity-100 shadow-lg flex items-center justify-center z-50">
+                    <div className="bg-[#202020] rounded-lg p-6 w-full max-w-md mx-4">
+                        <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-xl font-semibold text-white">Edit Address</h3>
+                            <button
+                                onClick={() => setShowEditModal(false)}
+                                className="text-gray-400 hover:text-white"
+                            >
+                                ✕
+                            </button>
+                        </div>
+
+                        <div className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                                <input
+                                    type="text"
+                                    value={editFormData.name}
+                                    onChange={(e) => setEditFormData({ ...editFormData, name: e.target.value })}
+                                    className="w-full px-3 py-2 bg-neutral-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-300 mb-1">Type</label>
+                                <select
+                                    value={editFormData.type}
+                                    onChange={(e) => setEditFormData({ ...editFormData, type: e.target.value })}
+                                    className="w-full px-3 py-2 bg-neutral-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                                >
+                                    <option value="Home">Home</option>
+                                    <option value="Office">Office</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-300 mb-1">Mobile</label>
+                                <input
+                                    type="text"
+                                    value={editFormData.mobile}
+                                    onChange={(e) => setEditFormData({ ...editFormData, mobile: e.target.value })}
+                                    className="w-full px-3 py-2 bg-neutral-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-300 mb-1">Address</label>
+                                <input
+                                    type="text"
+                                    value={editFormData.address}
+                                    onChange={(e) => setEditFormData({ ...editFormData, address: e.target.value })}
+                                    className="w-full px-3 py-2 bg-neutral-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-300 mb-1">Location</label>
+                                <input
+                                    type="text"
+                                    value={editFormData.location}
+                                    onChange={(e) => setEditFormData({ ...editFormData, location: e.target.value })}
+                                    className="w-full px-3 py-2 bg-neutral-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="flex space-x-3 mt-6">
+                            <button
+                                onClick={() => setShowEditModal(false)}
+                                className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={() => {
+                                    // Handle save logic here
+                                    console.log('Saving address:', editFormData)
+                                    setShowEditModal(false)
+                                }}
+                                className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                            >
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Delete Modal */}
+            {showDeleteModal && (
+                <div className="fixed inset-0 bg-black/50 bg-opacity-10 shadow-lg flex items-center justify-center z-50">
+                    <div className="bg-[#202020] rounded-lg p-6 w-full max-w-md mx-4">
+                        <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-xl font-semibold text-white">Delete Address</h3>
+                            <button
+                                onClick={() => setShowDeleteModal(false)}
+                                className="text-gray-400 hover:text-white"
+                            >
+                                ✕
+                            </button>
+                        </div>
+
+                        <div className="mb-6">
+                            <p className="text-gray-300 mb-4">Are you sure you want to delete this address?</p>
+                            {selectedAddress && (
+                                <div className="bg-neutral-700 rounded-lg p-3">
+                                    <div className="flex items-center space-x-2 mb-2">
+                                        <span className="font-medium text-white">{selectedAddress.name}</span>
+                                        <span className={`px-2 py-1 text-xs rounded ${selectedAddress.type === "Home"
+                                            ? "bg-blue-600 text-blue-100"
+                                            : "bg-green-600 text-green-100"
+                                            }`}>
+                                            {selectedAddress.type}
+                                        </span>
+                                    </div>
+                                    <p className="text-gray-300 text-sm">{selectedAddress.address}</p>
+                                    <p className="text-gray-300 text-sm">{selectedAddress.location}</p>
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="flex space-x-3">
+                            <button
+                                onClick={() => setShowDeleteModal(false)}
+                                className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                onClick={() => {
+                                    // Handle delete logic here
+                                    console.log('Deleting address:', selectedAddress)
+                                    setShowDeleteModal(false)
+                                }}
+                                className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Success Modal */}
+            {showSuccessModal && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                    <div className="bg-[#202020] rounded-lg p-8 w-full max-w-md mx-4 text-center">
+                        <div className="mb-6">
+                            {/* Success Icon */}
+                            <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+
+                            <h3 className="text-2xl font-bold text-white mb-2">Order Placed Successfully!</h3>
+                            <p className="text-gray-300 mb-4">Thank you for your order. We'll send you a confirmation email shortly.</p>
+
+                            <div className="bg-neutral-700 rounded-lg p-4 mb-4">
+                                <div className="flex justify-between items-center mb-2">
+                                    <span className="text-gray-300">Order ID:</span>
+                                    <span className="text-white font-semibold">#ORD-{Date.now().toString().slice(-6)}</span>
+                                </div>
+                                <div className="flex justify-between items-center mb-2">
+                                    <span className="text-gray-300">Total Amount:</span>
+                                    <span className="text-green-400 font-semibold">$355.00</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                    <span className="text-gray-300">Estimated Delivery:</span>
+                                    <span className="text-white">3-5 Business Days</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="space-y-3">
+                            <button
+                                onClick={() => {
+                                    setShowSuccessModal(false)
+                                    navigate('/product')
+                                }}
+                                className="w-full px-4 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                            >
+                                Continue Shopping
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

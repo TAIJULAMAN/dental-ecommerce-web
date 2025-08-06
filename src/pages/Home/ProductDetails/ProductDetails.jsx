@@ -91,10 +91,13 @@ const ProductDetails = () => {
 
   return (
     <div className="mx-auto container text-white py-10">
-      <BreadCrumb name="Home" title={product.title} />
+
+      <div className="container mx-auto flex justify-start items-center pl-5">
+        <BreadCrumb name="Home" title={product.title} />
+      </div>
 
       {/* Main Section */}
-      <div className="flex flex-col lg:flex-row gap-10 mt-10">
+      <div className="flex flex-col lg:flex-row gap-10 mt-10 px-5 md:px-0">
         {/* Image Section */}
         <div className="flex flex-col gap-4">
           <div
@@ -166,7 +169,7 @@ const ProductDetails = () => {
                     {product.price}
                   </span>
                 ) : (
-                  <span 
+                  <span
                     className="text-[#136BFB] font-medium  cursor-pointer hover:underline"
                     onClick={() => navigate("/login")}
                   >
@@ -276,15 +279,15 @@ const ProductDetails = () => {
       )}
 
       {/* Product Details */}
-      <div className="mt-16">
+      <div className="mt-10 ">
         <SectionHeading title="Product Details:" showButton={false} />
-        <p className="text-[#9F9C96] mt-4 leading-7">{product.details}</p>
+        <p className="text-[#9F9C96] mt-4 leading-7 px-5 md:px-0">{product.details}</p>
       </div>
 
       {/* Related Products */}
-      <div className="mt-16">
+      <div className="mt-10">
         <SectionHeading title="Related Products" showButton={false} />
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 min-h-screen gap-5 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 min-h-screen gap-5 mt-5 px-5 md:px-0">
           {Relatedproducts.map((prod, idx) => (
             <HotSellingCard
               key={idx}

@@ -340,15 +340,15 @@ export default function Navbar() {
 
             <div className="mt-8 pt-6 border-t border-gray-700">
               <div className="flex flex-col space-y-4">
-                <button className="w-full flex items-center justify-center space-x-2 px-4 py-3 border border-[#136BFB] text-[#136BFB] rounded-lg">
+                <button onClick={() => { navigate("/login"); toggleMenu(); }} className="cursor-pointer w-full flex items-center justify-center space-x-2 px-4 py-3 border border-[#136BFB] text-[#136BFB] rounded-lg">
                   <FaRegUser className="h-4 w-4" />
                   <span>Log in</span>
                 </button>
-                <button className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-[#136BFB] text-white rounded-lg">
+                <button onClick={() => { navigate("/signup"); toggleMenu(); }} className="cursor-pointer w-full flex items-center justify-center space-x-2 px-4 py-3 bg-[#136BFB] text-white rounded-lg">
                   <FiUserPlus className="h-4 w-4" />
                   <span>Sign up</span>
                 </button>
-                <button className="w-full flex items-center justify-center space-x-2 px-4 py-3 border border-[#136BFB] text-[#136BFB] rounded-lg">
+                <button onClick={() => { navigate("/shopping-cart"); toggleMenu(); }} className="cursor-pointer w-full flex items-center justify-center space-x-2 px-4 py-3 border border-[#136BFB] text-[#136BFB] rounded-lg">
                   <RiShoppingCart2Line className="h-5 w-5" />
                   <span>Cart</span>
                 </button>

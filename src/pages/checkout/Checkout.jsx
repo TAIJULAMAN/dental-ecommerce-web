@@ -41,7 +41,7 @@ export default function Checkout() {
     ]
     const navigate = useNavigate()
     return (
-        <div className="">
+        <div className="px-5 md:px-0">
             <div className="container mx-auto flex justify-start items-center">
                 <BreadCrumb name="Home" title="Checkout" />
             </div>

@@ -72,7 +72,7 @@ export default function ProcedureGuide() {
     );
 
     return (
-        <main className="py-10 container mx-auto">
+        <main className="py-10 container mx-auto px-5 md:px-0">
             <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-5 gap-2">
                 <PageHeading title="Browse by Dental Procedure" />
             </header>

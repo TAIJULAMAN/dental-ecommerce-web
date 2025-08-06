@@ -167,13 +167,16 @@ export default function Product() {
       </div>
 
 
-      <div className="mx-auto container text-white px-5">
-        <BreadCrumb title={`Product`} name={`Home`} />
+      <div className="mx-auto container text-white">
+        <div className="container mx-auto flex justify-start items-center px-5 md:px-0">
+          <BreadCrumb title={`Product`} name={`Home`} />
+        </div>
+
         <SectionHeading title="All Products" showButton={false} />
         {/* Filter and products */}
-        <div className="grid grid-cols-1 md:grid-cols-4 min-h-screen gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-4 min-h-screen gap-5 px-5 md:px-0">
           {/* Filter Section */}
-          <div className="bg-gray-800 px-5 rounded-lg h-[100vh]">
+          <div className="bg-gray-800 px-5 rounded-lg h-[100vh] w-full">
             <div className="space-y-5">
               {/* Price Filter */}
               <div className="p-4  w-full max-w-xs border-b border-[#DBDBDB]">

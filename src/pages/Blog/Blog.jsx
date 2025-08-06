@@ -100,7 +100,7 @@ const Blog = () => {
       <SectionHeading showButton={false}  title='Insights & Innovations in Dental Care' />
 
       {/* cards */}
-      <div className='flex gap-5 flex-wrap space-y-5'>
+      <div className='flex gap-5 flex-wrap space-y-5 px-5 md:px-0'>
         {posts.map((post, idx) => (
  <BlogCard
           key={idx}

@@ -158,7 +158,7 @@ export default function Product() {
   const [showAvailability, setShowAvailability] = useState(true);
 
   return (
-    <div>
+    <>
       <div className="absolute top-1/2 left-0">
         <div className="w-[500px] h-[500px] bg-[#136BFB] opacity-20 blur-3xl rounded-full"></div>
       </div>
@@ -181,15 +181,17 @@ export default function Product() {
                 <div className="flex items-center gap-2 mb-4">
                   <input
                     type="number"
-                    placeholder="Min"
-                    className="w-full p-2 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-400 outline-none"
+                    // placeholder="Max"
+                    className="w-full py-2 px-2 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-400 outline-none"
                   />
                   <span className="text-white">–</span>
                   <input
                     type="number"
-                    placeholder="Max"
-                    className="w-full py-2 px-2 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-400 outline-none"
+                    // placeholder="Min"
+                    className="w-full p-2 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-400 outline-none"
                   />
+
+
                   <button className="px-6 py-3 bg-[#136BFB] hover:bg-blue-700 rounded text-white border border-gray-300 ">
                     <BiSolidDownArrow className="-rotate-90"></BiSolidDownArrow>
                   </button>
@@ -359,7 +361,7 @@ export default function Product() {
           </div>
         </div>
       </div>
-    </div>
+    </>
 
   );
 };

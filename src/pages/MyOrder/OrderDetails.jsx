@@ -38,7 +38,8 @@ const OrderDetails = ({
                 <div className="flex items-center justify-between mb-6">
                     <h1 className="text-xl font-semibold">Orders Details</h1>
                     <button className="text-blue-400 hover:text-blue-300 transition-colors">
-                        <FiRotateCcw size={20} />
+                        {/* <FiRotateCcw size={20} /> */}
+                        <img src="/download.svg" alt="" />
                     </button>
                 </div>
 

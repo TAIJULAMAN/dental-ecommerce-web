@@ -152,7 +152,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center justify-end space-x-2">
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <CiSearch className="h-4 w-4 text-[#136BFB]" />
@@ -166,16 +166,21 @@ export default function Navbar() {
                 <VscSettings className="h-5 w-5 text-[#136BFB]" />
               </button>
             </div>
-            <div className="flex-1 flex items-center justify-end space-x-6">
+            <div className="flex-1 flex items-center justify-end space-x-2">
+              <button className="w-full flex items-center justify-center px-0 py-2 border border-[#136BFB] text-[#136BFB] rounded-lg">
+                <RiShoppingCart2Line className="h-5 w-5" />
+              </button>
               <div className="relative" ref={dropdownRef}>
                 <div
-                  className="flex items-center space-x-3 cursor-pointer group"
+                  className="flex items-center cursor-pointer group"
                   onClick={toggleDropdown}
                 >
                   <img
                     src="https://i.ibb.co.com/RvFgZC8/aman.png"
                     alt="profile"
-                    className="h-10 w-10 rounded-full border-2 border-transparent group-hover:border-[#136BFB] transition-colors"
+                    height={70}
+                    width={70}
+                    className=" rounded-full"
                   />
                 </div>
 
@@ -222,12 +227,12 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
-              <Link to="/notification">
+              {/* <Link to="/notification">
                 <button className="p-1 text-gray-400 hover:text-white relative">
                   <LuBell className="h-8 w-8" />
                   <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500"></span>
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -285,109 +290,53 @@ export default function Navbar() {
           </div>
 
           <nav className="flex-1 overflow-y-auto">
-            {/* <ul className="space-y-5 flex flex-col">
-              <li>
-                <Link
-                  href="/"
-                  className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/product"
-                  className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Product
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/all-category"
-                  className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Category
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/procedure-guide"
-                  className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Procedure Guide
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/pharmaceuticals"
-                  className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Pharmaceuticals
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="block text-white hover:text-[#136BFB] text-lg py-2 transition-colors"
-                  onClick={toggleMenu}
-                >
-                  Blog
-                </Link>
-              </li>
 
-            </ul> */}
             <div className="flex flex-col space-y-5">
-            <Link
-              to="/"
-              className="text-white hover:text-gray-300 transition-colors"
-              onClick={toggleMenu}
-            >
-              Home
-            </Link>
-            <Link
-              to="/product"
-              className="text-white hover:text-gray-300 transition-colors"
-              onClick={toggleMenu}
-            >
-              Product
-            </Link>
-            <Link
-              to="/all-category"
-              className="text-white hover:text-gray-300 transition-colors"
-              onClick={toggleMenu}
-            >
-              Category
-            </Link>
-            <Link
-              to="/procedure-guide"
-              className="text-white hover:text-gray-300 transition-colors"
-              onClick={toggleMenu}
-            >
-              Procedure Guide
-            </Link>
-            <Link
-              to="/pharmaceuticals"
-              className="text-white hover:text-gray-300 transition-colors"
-              onClick={toggleMenu}
-            >
-              Pharmaceuticals
-            </Link>
-            <Link
-              to="/blog"
-              className="text-white hover:text-gray-300 transition-colors"
-              onClick={toggleMenu}
-            >
-              Blog
-            </Link>
+              <Link
+                to="/"
+                className="text-white hover:text-gray-300 transition-colors"
+                onClick={toggleMenu}
+              >
+                Home
+              </Link>
+              <Link
+                to="/product"
+                className="text-white hover:text-gray-300 transition-colors"
+                onClick={toggleMenu}
+              >
+                Product
+              </Link>
+              <Link
+                to="/all-category"
+                className="text-white hover:text-gray-300 transition-colors"
+                onClick={toggleMenu}
+              >
+                Category
+              </Link>
+              <Link
+                to="/procedure-guide"
+                className="text-white hover:text-gray-300 transition-colors"
+                onClick={toggleMenu}
+              >
+                Procedure Guide
+              </Link>
+              <Link
+                to="/pharmaceuticals"
+                className="text-white hover:text-gray-300 transition-colors"
+                onClick={toggleMenu}
+              >
+                Pharmaceuticals
+              </Link>
+              <Link
+                to="/blog"
+                className="text-white hover:text-gray-300 transition-colors"
+                onClick={toggleMenu}
+              >
+                Blog
+              </Link>
 
 
-          </div>
+            </div>
 
             <div className="mt-8 pt-6 border-t border-gray-700">
               <div className="flex flex-col space-y-4">

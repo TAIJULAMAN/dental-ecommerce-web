@@ -2,7 +2,6 @@ import React from 'react';
 
 const OrderSummary = ({
     subtotal,
-    shippingFee,
     total,
     onProceedToCheckout
 }) => {
@@ -15,12 +14,6 @@ const OrderSummary = ({
                     <span className="text-gray-400">Subtotal</span>
                     <span className="text-white font-semibold">{subtotal.toFixed(2)}$</span>
                 </div>
-
-                <div className="flex justify-between items-center">
-                    <span className="text-gray-400">Shipping fee</span>
-                    <span className="text-white font-semibold">{shippingFee.toFixed(2)}$</span>
-                </div>
-
                 <div className="border-t border-gray-600 pt-4">
                     <div className="flex justify-between items-center">
                         <span className="text-gray-400 text-lg">Total :</span>

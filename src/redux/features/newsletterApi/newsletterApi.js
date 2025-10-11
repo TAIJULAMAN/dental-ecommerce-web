@@ -1,0 +1,24 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { getBaseUrl } from "../../../utils/getBaseUrl";
+
+const newsletterApi = createApi({
+  reducerPath: "newsletterApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: `${getBaseUrl()}/api/newsletter`,
+    credentials: "include",
+  }),
+  tagTypes: ["Newsletter"],
+  endpoints: (builder) => ({
+    subscribeNewsletter: builder.mutation({
+      query: (emailData) => ({
+        url: "/subscribe",
+        method: "POST",
+        body: emailData, // { email: "example@gmail.com" }
+      }),
+      invalidatesTags: ["Newsletter"],
+    }),
+  }),
+});
+
+export const { useSubscribeNewsletterMutation } = newsletterApi;
+export default newsletterApi;

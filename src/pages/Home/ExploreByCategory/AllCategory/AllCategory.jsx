@@ -2,102 +2,13 @@ import React from "react";
 import BreadCrumb from "../../../../components/shared/BreadCrumb";
 import SectionHeading from "../../../../components/shared/SectionHeading";
 import CategoryCard from "../../../../components/shared/CategoryCard";
+import { useFetchAllCategoriesQuery } from "../../../../redux/features/category/CategoriesApi";
+import { getBaseUrl } from "../../../../utils/getBaseUrl";
 
 const AllCategory = () => {
-  const categories = [
-    {
-      id: "12341234",
-      title: "Endodontics",
-      image:
-        "https://i.ibb.co/p62JL0kw/0b031cc6c6dbb3cccbd3c06d62f0e40859ba08c2.png",
-    },
-    {
-      id: "1234123234",
-      title: "Surgical Instruments",
-      image: "https://i.ibb.co/QF38khXz/Category-1.jpg",
-    },
-    {
-      id: "1234123123",
-      title: "Impression Materials",
-      image: "https://i.ibb.co/WWn8pCtd/Category-2.jpg",
-    },
-    {
-      id: "2345123423",
-      title: "Infection Control &....",
-      image: "https://i.ibb.co/Gv8SChtR/Category-3.jpg",
-    },
-    {
-      id: "234512678",
-      title: "Orthodontics",
-      image: "https://i.ibb.co/HDvXq17R/Category-4.jpg",
-    },
-
-    {
-      title: "Endodontics",
-      image:
-        "https://i.ibb.co/p62JL0kw/0b031cc6c6dbb3cccbd3c06d62f0e40859ba08c2.png",
-    },
-    {
-      title: "Surgical Instruments",
-      image: "https://i.ibb.co/QF38khXz/Category-1.jpg",
-    },
-    {
-      title: "Impression Materials",
-      image: "https://i.ibb.co/WWn8pCtd/Category-2.jpg",
-    },
-    {
-      title: "Infection Control &....",
-      image: "https://i.ibb.co/Gv8SChtR/Category-3.jpg",
-    },
-    {
-      title: "Orthodontics",
-      image: "https://i.ibb.co/HDvXq17R/Category-4.jpg",
-    },
-
-    {
-      title: "Endodontics",
-      image:
-        "https://i.ibb.co/p62JL0kw/0b031cc6c6dbb3cccbd3c06d62f0e40859ba08c2.png",
-    },
-    {
-      title: "Surgical Instruments",
-      image: "https://i.ibb.co/QF38khXz/Category-1.jpg",
-    },
-    {
-      title: "Impression Materials",
-      image: "https://i.ibb.co/WWn8pCtd/Category-2.jpg",
-    },
-    {
-      title: "Infection Control &....",
-      image: "https://i.ibb.co/Gv8SChtR/Category-3.jpg",
-    },
-    {
-      title: "Orthodontics",
-      image: "https://i.ibb.co/HDvXq17R/Category-4.jpg",
-    },
-
-    {
-      title: "Endodontics",
-      image:
-        "https://i.ibb.co/p62JL0kw/0b031cc6c6dbb3cccbd3c06d62f0e40859ba08c2.png",
-    },
-    {
-      title: "Surgical Instruments",
-      image: "https://i.ibb.co/QF38khXz/Category-1.jpg",
-    },
-    {
-      title: "Impression Materials",
-      image: "https://i.ibb.co/WWn8pCtd/Category-2.jpg",
-    },
-    {
-      title: "Infection Control &....",
-      image: "https://i.ibb.co/Gv8SChtR/Category-3.jpg",
-    },
-    {
-      title: "Orthodontics",
-      image: "https://i.ibb.co/HDvXq17R/Category-4.jpg",
-    },
-  ];
+ 
+  const { data: categories } = useFetchAllCategoriesQuery({});
+  console.log(categories)
 
   return (
     <div>
@@ -114,11 +25,11 @@ const AllCategory = () => {
 
         {/* cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 container mx-auto  px-5 md:px-0">
-          {categories.map((category, idx) => (
+          {categories?.map((category, idx) => (
             <CategoryCard
               key={idx}
-              title={category.title}
-              image={category.image}
+              title={category?.name}
+              image={`${getBaseUrl()}${category.imageUrl}`}
               link="/product"
             />
           ))}

@@ -2,11 +2,19 @@ import React from "react";
 import BreadCrumb from "../../components/shared/BreadCrumb";
 import ProfileCard from "./ProfileCard";
 import AddressSection from "./AddressSection";
+import { useSelector } from "react-redux";
+import { useFetchUserAddressesByIdQuery } from "../../redux/features/address/addressApi";
 
 export default function Profile() {
     const handleChangePassword = () => {
         console.log('Change password clicked');
       };
+      const user = useSelector((state) => state.auth.user);
+      console.log("Logged in user:", user);
+
+       const { data: addressList, isLoading } = useFetchUserAddressesByIdQuery(user?.userId);
+      console.log("usr--->",addressList)
+      
     return (
         <div>
             <div className="container mx-auto flex justify-start items-center py-10">

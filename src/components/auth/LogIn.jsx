@@ -1,27 +1,56 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { IoEyeOffOutline, IoEyeOutline, IoClose } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLoginUserMutation } from "../../redux/features/auth/authApi";
+import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/features/auth/authSlice";
+import { jwtDecode } from "jwt-decode";
+import { useSelector } from "react-redux";
 
 export default function LogIn() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
+  const [loginUser] = useLoginUserMutation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await loginUser(formData).unwrap();
+      console.log("Login response:", response);
+
+      const { accessToken } = response.data;
+      const decodedUser = jwtDecode(accessToken);
+      console.log("Decoded User:", decodedUser);
+
+      // 🔥 redux + localStorage এ save
+      dispatch(setUser({ user: decodedUser, token: accessToken }));
+
+      Swal.fire({
+        title: "Login Successful!",
+        icon: "success",
+      });
+
+      navigate("/");
+    } catch (error) {
+      console.log("Login failed!", error);
+      Swal.fire({
+        title: "Login Failed!",
+        icon: "error",
+        text: error?.data?.message || "Something went wrong",
+      });
+    }
   };
+
+const user = useSelector((state) => state.auth.user);
+console.log("usr",user)
 
   return (
     <div className="flex min-h-screen bg-white">
@@ -29,13 +58,13 @@ export default function LogIn() {
       <div className="w-full md:w-1/2 bg-[#171717] p-8 flex flex-col justify-center relative">
         <div className="max-w-md mx-auto w-full">
           <h1 className="text-center text-3xl font-bold text-white mb-2">
-            Welcome Back !
+            Welcome Back!
           </h1>
           <p className="text-center text-[#9F9C96] mb-8">
             Please enter your email and password to continue
           </p>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block text-white font-bold text-lg mb-2">
                 Email
@@ -46,7 +75,7 @@ export default function LogIn() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className="w-full px-4 py-3 bg-[#2D2D2D] text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
+                className="w-full px-4 py-3 bg-[#2D2D2D] text-white rounded-lg border border-gray-600 focus:border-blue-500"
                 required
               />
             </div>
@@ -62,7 +91,7 @@ export default function LogIn() {
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="Enter your password"
-                  className="w-full px-4 py-3 bg-[#2D2D2D] text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none pr-12"
+                  className="w-full px-4 py-3 bg-[#2D2D2D] text-white rounded-lg border border-gray-600 pr-12"
                   required
                 />
                 <button
@@ -79,32 +108,12 @@ export default function LogIn() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              <label className="flex items-center">
-                <input
-                  type="checkbox"
-                  checked={isChecked}
-                  onChange={handleCheckboxChange}
-                  className="h-4 w-4 text-blue-600 rounded border-gray-600 focus:ring-blue-500"
-                />
-                <span className="ml-2 text-gray-300">Remember Me</span>
-              </label>
-              <Link
-                to="/forget-password"
-                className="text-red-500 hover:underline text-sm"
-              >
-                Forgot Password?
-              </Link>
-            </div>
-
-            <Link to="/">
-              <button
-                type="submit"
-                className="w-full bg-[#136BFB] text-white font-bold py-3 px-4 rounded-lg transition mt-5"
-              >
-                Log In
-              </button>
-            </Link>
+            <button
+              type="submit"
+              className="w-full bg-[#136BFB] text-white font-bold py-3 px-4 rounded-lg transition mt-5"
+            >
+              Log In
+            </button>
 
             <p className="text-center text-[#9F9C96] mt-5">
               Don't have an account?{" "}
@@ -116,7 +125,7 @@ export default function LogIn() {
         </div>
       </div>
 
-      {/* Right Column - Illustration */}
+      {/* ✅ Right Column - Illustration */}
       <div className="hidden md:flex md:w-1/2 bg-[#162236] items-center justify-center relative">
         <div className="absolute top-4 right-4">
           <button className="text-white hover:bg-blue-700 p-2 rounded-full">
@@ -125,7 +134,7 @@ export default function LogIn() {
         </div>
         <div className="text-center px-12">
           <div className="w-[500px] h-[500px] mx-auto">
-            <img src="./signin.svg" alt="" />
+            <img src="/signin.svg" alt="Login Illustration" />
           </div>
         </div>
       </div>

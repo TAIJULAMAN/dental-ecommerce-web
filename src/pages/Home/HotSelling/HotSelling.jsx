@@ -1,72 +1,47 @@
-import React from 'react'
-import SectionHeading from '../../../components/shared/SectionHeading'
-import HotSellingCard from '../../../components/shared/HotSellingCard'
-import { useNavigate } from 'react-router-dom'
+import React from "react";
+import SectionHeading from "../../../components/shared/SectionHeading";
+import HotSellingCard from "../../../components/shared/HotSellingCard";
+import { useNavigate } from "react-router-dom";
 
-const products = [
-  {
-    id: "12346789",
-    title: 'Penora 200',
-    image: 'https://i.ibb.co/nsfm8xgd/4de2c5b7-3921-48c0-8683-f1a166734214.jpg',
-    description: 'High-speed titanium handpiece with quattro spray, ergonomic grip',
-  },
-  {
-    id: "22346789",
-    title: 'Walden Tesla Air Rotor',
-    image: 'https://i.ibb.co/Wvr7BDR9/selling2.png',
-    description: 'High-speed titanium handpiece with quattro spray, ergonomic grip',
-  },
-  {
-    id: "32346789",
-    title: 'Endo Excellence canal Commander...',
-    image: 'https://i.ibb.co/gb6H9kgd/selling3.png',
-    description: 'High-speed titanium handpiece with quattro spray, ergonomic grip',
-  },
-  {
-    id: "42346789",
-    title: 'Nova Compo Plus',
-    image: 'https://i.ibb.co/7dwxVDfq/selling4.png',
-    description: 'High-speed titanium handpiece with quattro spray, ergonomic grip',
-  },
-  {
-    id: "52346789",
-    title: 'B&E Etch-37',
-    image: 'https://i.ibb.co/2YpB12Kz/selling5.png',
-    description: 'High-speed titanium handpiece with quattro spray, ergonomic grip',
-  },
-]
+import { getBaseUrl } from "../../../utils/getBaseUrl";
+import { useFetchAllHotSellingQuery } from "../../../redux/features/hotSellingApi/HotSellingApi";
+
 
 
 const HotSelling = () => {
+    const { data: products = [] } = useFetchAllHotSellingQuery();
+    console.log("Hot Products --->", products); 
   const navigate = useNavigate();
   return (
-    <div className='pb-10'>
+    <div className="pb-10">
       <SectionHeading
-        title='Hot Selling'
-        buttonText='View All'
+        title="Hot Selling"
+        buttonText="View All"
         onButtonClick={() => {
-          navigate("hot-selling")
+          navigate("hot-selling");
         }}
       />
 
+
       {/* cards */}
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 container mx-auto px-5 md:px-0'>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 container mx-auto px-5 md:px-0">
         {products.map((product, idx) => (
           <HotSellingCard
-            key={idx}
+            key={product._id}
             id={product.id}
-            image={product.image}
-            title={product.title}
+            image={`${getBaseUrl()}${product?.images?.[0]}`}
+            title={product?.name}
             description={product.description}
+            cardHeight={260}
+            cardWidth={260}
+            price={product.price}
+            onAddToCart={() => alert(`Added to Cart: ${product.title}`)}
+            onWishlistClick={() => alert(`Wishlisted: ${product.title}`)}
           />
-
         ))}
       </div>
-
-
-
     </div>
-  )
-}
+  );
+};
 
-export default HotSelling
+export default HotSelling;

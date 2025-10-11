@@ -1,208 +1,137 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BreadCrumb from "../../components/shared/BreadCrumb";
 import SectionHeading from "../../components/shared/SectionHeading";
 import HotSellingCard from "../../components/shared/HotSellingCard";
 import { BiSolidDownArrow } from "react-icons/bi";
+import { useFetchAllProductsQuery } from "../../redux/features/products/productsApi";
+import { getBaseUrl } from "../../utils/getBaseUrl";
+import { useFetchAllCategoriesQuery } from "../../redux/features/category/CategoriesApi";
+import { useFetchAllBrandsQuery } from "../../redux/features/brand/brandApi";
+import { useFetchAllProcedureQuery } from "../../redux/features/procedure/procedure";
 
 export default function Product() {
-  const products = [
-    {
-      id: 1,
-      title: "Penora 200",
-      image:
-        "https://i.ibb.co/nsfm8xgd/4de2c5b7-3921-48c0-8683-f1a166734214.jpg",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 2,
-      title: "Walden Tesla Air Rotor",
-      image: "https://i.ibb.co/Wvr7BDR9/selling2.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 3,
-      title: "Endo Excellence canal Commander...",
-      image: "https://i.ibb.co/gb6H9kgd/selling3.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 4,
-      title: "Nova Compo Plus",
-      image: "https://i.ibb.co/7dwxVDfq/selling4.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 5,
-      title: "B&E Etch-37",
-      image: "https://i.ibb.co/2YpB12Kz/selling5.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 6,
-      title: "Penora 200",
-      image:
-        "https://i.ibb.co/nsfm8xgd/4de2c5b7-3921-48c0-8683-f1a166734214.jpg",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 7,
-      title: "Walden Tesla Air Rotor",
-      image: "https://i.ibb.co/Wvr7BDR9/selling2.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 8,
-      title: "Endo Excellence canal Commander...",
-      image: "https://i.ibb.co/gb6H9kgd/selling3.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 9,
-      title: "Nova Compo Plus",
-      image: "https://i.ibb.co/7dwxVDfq/selling4.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 10,
-      title: "B&E Etch-37",
-      image: "https://i.ibb.co/2YpB12Kz/selling5.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 11,
-      title: "Penora 200",
-      image:
-        "https://i.ibb.co/nsfm8xgd/4de2c5b7-3921-48c0-8683-f1a166734214.jpg",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 12,
-      title: "Walden Tesla Air Rotor",
-      image: "https://i.ibb.co/Wvr7BDR9/selling2.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 13,
-      title: "Endo Excellence canal Commander...",
-      image: "https://i.ibb.co/gb6H9kgd/selling3.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 14,
-      title: "Nova Compo Plus",
-      image: "https://i.ibb.co/7dwxVDfq/selling4.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 15,
-      title: "B&E Etch-37",
-      image: "https://i.ibb.co/2YpB12Kz/selling5.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 16,
-      title: "Penora 200",
-      image:
-        "https://i.ibb.co/nsfm8xgd/4de2c5b7-3921-48c0-8683-f1a166734214.jpg",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 17,
-      title: "Walden Tesla Air Rotor",
-      image: "https://i.ibb.co/Wvr7BDR9/selling2.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 18,
-      title: "Endo Excellence canal Commander...",
-      image: "https://i.ibb.co/gb6H9kgd/selling3.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 19,
-      title: "Nova Compo Plus",
-      image: "https://i.ibb.co/7dwxVDfq/selling4.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-    {
-      id: 20,
-      title: "B&E Etch-37",
-      image: "https://i.ibb.co/2YpB12Kz/selling5.png",
-      description:
-        "High-speed titanium handpiece with quattro spray, ergonomic grip",
-    },
-  ];
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productPerPage] = useState(4);
 
+  // 🧠 Filter States
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [selectedProcedures, setSelectedProcedures] = useState([]);
+  const [availability, setAvailability] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+
+  // 🧩 Query
+  const { data, isLoading } = useFetchAllProductsQuery({
+    category: selectedCategories.join(","),
+    brand: selectedBrands.join(","),
+    procedureType: selectedProcedures.join(","),
+    availability,
+    minPrice,
+    maxPrice,
+    page: currentPage,
+    limit: productPerPage,
+  });
+
+  const products = data?.data || [];
+  const totalProducts = data?.total || 0;
+  const totalPages = Math.ceil(totalProducts / productPerPage);
+
+  // 🗂 Fetch all filter options
+  const { data: categories } = useFetchAllCategoriesQuery({});
+  const { data: brands } = useFetchAllBrandsQuery({});
+  const { data: procedure } = useFetchAllProcedureQuery({});
+
+  // UI dropdown toggles
   const [showCategory, setShowCategory] = useState(true);
   const [showProcedure, setShowProcedure] = useState(true);
   const [showBrand, setShowBrand] = useState(true);
   const [showAvailability, setShowAvailability] = useState(true);
 
+  // 🧮 Handle Checkbox Change (Reusable)
+  const handleCheckboxChange = (value, setState) => {
+    setState((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+    );
+  };
+
+  const handlePriceFilter = () => {
+    setCurrentPage(1); 
+  };
+
+  if (isLoading)
+    return (
+      <div className="min-h-screen flex justify-center items-center text-white text-4xl font-bold">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="spinner-1 w-10 h-10 shrink-0 animate-spin"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fillRule="evenodd"
+            d="M12.001 5.04a2.32 2.32 0 1 0 0-4.64 2.32 2.32 0 0 0 0 4.64zm0 18.56a2.32 2.32 0 1 0 0-4.64 2.32 2.32 0 0 0 0 4.64zm9.197-14.23a2.32 2.32 0 1 1-2.32-4.02 2.32 2.32 0 0 1 2.32 4.02zM1.956 17.8a2.32 2.32 0 1 0 4.018-2.32 2.32 2.32 0 0 0-4.018 2.32zm16.922.85a2.32 2.32 0 1 1 2.32-4.02 2.32 2.32 0 0 1-2.32 4.02zM1.956 6.2a2.32 2.32 0 1 0 4.018 2.32A2.32 2.32 0 0 0 1.956 6.2z"
+            clipRule="evenodd"
+            fill="#ffffff"
+          />
+        </svg>
+      </div>
+    );
+
   return (
     <>
-      <div className="absolute top-1/2 left-0">
-        <div className="w-[500px] h-[500px] bg-[#136BFB] opacity-20 blur-3xl rounded-full"></div>
-      </div>
-      <div className="absolute bottom-0 right-0">
-        <div className="w-[500px] h-[500px] bg-[#136BFB] opacity-20 blur-3xl rounded-full"></div>
-      </div>
 
+      {/* Background Blur Circles with lower z-index */}
+      <div className="absolute top-1/2 left-0 -z-10">
+        <div className="w-[500px] h-[500px] bg-[#136BFB] opacity-20 blur-3xl rounded-full"></div>
+      </div>
+      <div className="absolute bottom-0 right-0 -z-10">
+        <div className="w-[500px] h-[500px] bg-[#136BFB] opacity-20 blur-3xl rounded-full"></div>
+      </div>
 
       <div className="mx-auto container text-white">
-        <div className="container mx-auto flex justify-start items-center px-5 md:px-0">
+        <div className="container mx-auto flex justify-start items-center px-2 sm:px-5 md:px-0">
           <BreadCrumb title={`Product`} name={`Home`} />
         </div>
 
         <SectionHeading title="All Products" showButton={false} />
-        {/* Filter and products */}
-        <div className="grid grid-cols-1 md:grid-cols-4 min-h-screen gap-5 px-5 md:px-0">
-          {/* Filter Section */}
-          <div className="bg-gray-800 px-5 rounded-lg h-[100vh] w-full">
+
+        <div className="flex flex-col md:flex-row gap-6 md:gap-5 min-h-screen px-2 sm:px-5 md:px-0">
+          {/* =============== Filter Sidebar =============== */}
+          <div className="bg-gray-800 px-3 sm:px-5 rounded-lg w-full md:w-1/3 lg:w-1/4 xl:w-1/5 md:h-[90vh] h-auto mb-6 md:mb-0 overflow-y-auto z-20 relative">
             <div className="space-y-5">
-              {/* Price Filter */}
-              <div className="p-4  w-full max-w-xs border-b border-[#DBDBDB]">
-                <h3 className="text-white text-sm font-semibold mb-3">Price Filter</h3>
+
+              {/* 🏷 Price Filter */}
+              <div className="p-4 w-full max-w-xs border-b border-[#DBDBDB]">
+                <h3 className="text-white text-sm font-semibold mb-3">
+                  Price Filter
+                </h3>
                 <div className="flex items-center gap-2 mb-4">
                   <input
                     type="number"
-                    // placeholder="Max"
+                    placeholder="Min"
+                    value={minPrice}
+                    onChange={(e) => setMinPrice(e.target.value)}
                     className="w-full py-2 px-2 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-400 outline-none"
                   />
                   <span className="text-white">–</span>
                   <input
                     type="number"
-                    // placeholder="Min"
+                    placeholder="Max"
+                    value={maxPrice}
+                    onChange={(e) => setMaxPrice(e.target.value)}
                     className="w-full p-2 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-400 outline-none"
                   />
 
-
-                  <button className="px-6 py-3 bg-[#136BFB] hover:bg-blue-700 rounded text-white border border-gray-300 ">
+                  <button
+                    onClick={handlePriceFilter}
+                    className="px-6 py-3 bg-[#136BFB] hover:bg-blue-700 rounded text-white border border-gray-300 "
+                  >
                     <BiSolidDownArrow className="-rotate-90"></BiSolidDownArrow>
                   </button>
                 </div>
-
               </div>
 
-              {/* Category Filter */}
+              {/* 🧩 Category Filter */}
               <div className="border-b border-[#DBDBDB] pb-4">
                 <div
                   className="flex items-center justify-between cursor-pointer"
@@ -210,36 +139,45 @@ export default function Product() {
                 >
                   <h3 className="text-lg font-semibold">Category</h3>
                   <BiSolidDownArrow
-                    className={`transition-transform duration-300 text-[#136BFB] ${showCategory ? "rotate-0" : "rotate-180"
-                      }`}
+                    className={`transition-transform duration-300 text-[#136BFB] ${
+                      showCategory ? "rotate-0" : "rotate-180"
+                    }`}
                   />
                 </div>
                 {showCategory && (
                   <ul className="space-y-2 mt-2">
-                    {[
-                      "Endodontics",
-                      "Surgical Instrument",
-                      "Orthodontics",
-                      "Impression materials",
-                    ].map((category) => (
-                      <li key={category} className="flex justify-between items-center">
-                        <label className="flex items-center space-x-2 cursor-pointer">
-                          <input
-                            type="checkbox"
-                            className="rounded text-blue-500 bg-[#2b2d32] border border-[#136BFB]"
-                          />
-                          <span>{category}</span>
-                        </label>
-                        <span className="text-[#6C757D] bg-[#B4D0FE] rounded-sm px-1 text-sm">
-                          10214
-                        </span>
+                    {(Array.isArray(categories) && categories.length > 0) ? (
+                      categories.map((cat) => (
+                        <li
+                          key={cat._id}
+                          className="flex justify-between items-center"
+                        >
+                          <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                              type="checkbox"
+                              className="rounded text-blue-500 bg-[#2b2d32] border border-[#136BFB]"
+                              checked={selectedCategories?.includes(cat._id)}
+                              onChange={() =>
+                                handleCheckboxChange(
+                                  cat._id,
+                                  setSelectedCategories
+                                )
+                              }
+                            />
+                            <span>{cat.name}</span>
+                          </label>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="text-gray-400 text-sm">
+                        No categories found
                       </li>
-                    ))}
+                    )}
                   </ul>
                 )}
               </div>
 
-              {/* Procedure Type Filter */}
+              {/* 🧠 Procedure Filter */}
               <div className="border-b border-[#DBDBDB] pb-4">
                 <div
                   className="flex items-center justify-between cursor-pointer"
@@ -247,27 +185,45 @@ export default function Product() {
                 >
                   <h3 className="text-lg font-semibold">Procedure Type</h3>
                   <BiSolidDownArrow
-                    className={`transition-transform duration-300 text-[#136BFB] ${showProcedure ? "rotate-0" : "rotate-180"
-                      }`}
+                    className={`transition-transform duration-300 text-[#136BFB] ${
+                      showProcedure ? "rotate-0" : "rotate-180"
+                    }`}
                   />
                 </div>
                 {showProcedure && (
                   <ul className="space-y-2 mt-2">
-                    {["Filling", "Root Canal", "Crown/Bridge", "Extraction"].map(
-                      (procedure) => (
-                        <li key={procedure}>
+                    {(Array.isArray(procedure) && procedure.length > 0) ? (
+                      procedure.map((prc) => (
+                        <li
+                          key={prc._id}
+                          className="flex justify-between items-center"
+                        >
                           <label className="flex items-center space-x-2 cursor-pointer">
-                            <input type="checkbox" className="rounded text-blue-500" />
-                            <span>{procedure}</span>
+                            <input
+                              type="checkbox"
+                              className="rounded text-blue-500 bg-[#2b2d32] border border-[#136BFB]"
+                              checked={selectedProcedures.includes(prc._id)}
+                              onChange={() =>
+                                handleCheckboxChange(
+                                  prc._id,
+                                  setSelectedProcedures
+                                )
+                              }
+                            />
+                            <span>{prc.name}</span>
                           </label>
                         </li>
-                      )
+                      ))
+                    ) : (
+                      <li className="text-gray-400 text-sm">
+                        No procedure found
+                      </li>
                     )}
                   </ul>
                 )}
               </div>
 
-              {/* Brand Filter */}
+              {/* 🏷 Brand Filter */}
               <div className="border-b border-[#DBDBDB] pb-4">
                 <div
                   className="flex items-center justify-between cursor-pointer"
@@ -275,25 +231,40 @@ export default function Product() {
                 >
                   <h3 className="text-lg font-semibold">Brand</h3>
                   <BiSolidDownArrow
-                    className={`transition-transform duration-300 text-[#136BFB] ${showBrand ? "rotate-0" : "rotate-180"
-                      }`}
+                    className={`transition-transform duration-300 text-[#136BFB] ${
+                      showBrand ? "rotate-0" : "rotate-180"
+                    }`}
                   />
                 </div>
                 {showBrand && (
                   <ul className="space-y-2 mt-2">
-                    {["Panora", "Walden", "Dentsply", "3M"].map((brand) => (
-                      <li key={brand}>
-                        <label className="flex items-center space-x-2 cursor-pointer">
-                          <input type="checkbox" className="rounded text-blue-500" />
-                          <span>{brand}</span>
-                        </label>
-                      </li>
-                    ))}
+                    {(Array.isArray(brands) && brands.length > 0) ? (
+                      brands.map((brand) => (
+                        <li
+                          key={brand._id}
+                          className="flex justify-between items-center"
+                        >
+                          <label className="flex items-center space-x-2 cursor-pointer">
+                            <input
+                              type="checkbox"
+                              className="rounded text-blue-500 bg-[#2b2d32] border border-[#136BFB]"
+                              checked={selectedBrands.includes(brand._id)}
+                              onChange={() =>
+                                handleCheckboxChange(brand._id, setSelectedBrands)
+                              }
+                            />
+                            <span>{brand.name}</span>
+                          </label>
+                        </li>
+                      ))
+                    ) : (
+                      <li className="text-gray-400 text-sm">No brand found</li>
+                    )}
                   </ul>
                 )}
               </div>
 
-              {/* Availability Filter */}
+              {/* 📦 Availability Filter */}
               <div>
                 <div
                   className="flex items-center justify-between cursor-pointer"
@@ -301,8 +272,9 @@ export default function Product() {
                 >
                   <h3 className="text-lg font-semibold">Availability</h3>
                   <BiSolidDownArrow
-                    className={`transition-transform duration-300 text-[#136BFB] ${showAvailability ? "rotate-0" : "rotate-180"
-                      }`}
+                    className={`transition-transform duration-300 text-[#136BFB] ${
+                      showAvailability ? "rotate-0" : "rotate-180"
+                    }`}
                   />
                 </div>
                 {showAvailability && (
@@ -310,16 +282,26 @@ export default function Product() {
                     <li>
                       <label className="flex items-center space-x-2 cursor-pointer">
                         <input
-                          type="checkbox"
+                          type="radio"
+                          name="availability"
+                          value="In Stock"
+                          checked={availability === "In Stock"}
+                          onChange={(e) => setAvailability(e.target.value)}
                           className="rounded text-blue-500"
-                          defaultChecked
                         />
                         <span>In Stock</span>
                       </label>
                     </li>
                     <li>
                       <label className="flex items-center space-x-2 cursor-pointer">
-                        <input type="checkbox" className="rounded text-blue-500" />
+                        <input
+                          type="radio"
+                          name="availability"
+                          value="Out of Stock"
+                          checked={availability === "Out of Stock"}
+                          onChange={(e) => setAvailability(e.target.value)}
+                          className="rounded text-blue-500"
+                        />
                         <span>Out of Stock</span>
                       </label>
                     </li>
@@ -329,42 +311,60 @@ export default function Product() {
             </div>
           </div>
 
-          {/* Products Section */}
-          <div className="col-span-3">
-            {/* Product Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 container mx-auto px-5 md:px-0">
+          {/* =============== Product Cards =============== */}
+          <div className="w-full md:w-2/3 lg:w-3/4 xl:w-4/5 flex flex-col">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 w-full">
               {products.map((product) => (
                 <HotSellingCard
-                  key={product.id}
-                  id={product.id}
-                  image={product.image}
-                  title={product.title}
+                  key={product._id}
+                  id={product?._id}
+                  image={`${getBaseUrl()}${product?.images?.[0]}`}
+                  title={product.name}
                   description={product.description}
                   cardHeight={260}
                   cardWidth={260}
                   price={product.price}
-                  onAddToCart={() => alert(`Added to Cart: ${product.title}`)}
-                  onWishlistClick={() => alert(`Wishlisted: ${product.title}`)}
+                  onAddToCart={() => alert(`Added to Cart: ${product.name}`)}
+                  onWishlistClick={() => alert(`Wishlisted: ${product.name}`)}
                 />
               ))}
             </div>
 
-            {/* Pagination would go here */}
-            <div className="flex justify-center mt-8">
-              <div className="flex space-x-2">
-                <button className="px-4 py-2 bg-gray-700 rounded-md">
-                  Previous
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="flex flex-wrap justify-center items-center gap-2 mt-8">
+                <button
+                  className="px-3 py-1 rounded bg-gray-700 text-white disabled:opacity-50"
+                  onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+                  disabled={currentPage === 1}
+                >
+                  Prev
                 </button>
-                <button className="px-4 py-2 bg-blue-500 rounded-md">1</button>
-                <button className="px-4 py-2 bg-gray-700 rounded-md">2</button>
-                <button className="px-4 py-2 bg-gray-700 rounded-md">3</button>
-                <button className="px-4 py-2 bg-gray-700 rounded-md">Next</button>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    className={`px-3 py-1 rounded ${
+                      page === currentPage
+                        ? "bg-[#136BFB] text-white font-bold"
+                        : "bg-gray-700 text-white hover:bg-[#136BFB]"
+                    }`}
+                    onClick={() => setCurrentPage(page)}
+                  >
+                    {page}
+                  </button>
+                ))}
+                <button
+                  className="px-3 py-1 rounded bg-gray-700 text-white disabled:opacity-50"
+                  onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+                  disabled={currentPage === totalPages}
+                >
+                  Next
+                </button>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
     </>
-
   );
-};
+}

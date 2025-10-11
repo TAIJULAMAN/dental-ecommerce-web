@@ -3,6 +3,7 @@ import { useState } from "react";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { FiCamera, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { useRegisterUserMutation } from "../../redux/features/auth/authApi";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -13,6 +14,8 @@ export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [profileImage, setProfileImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+
+  const [registerUser, {isLoading,error}] = useRegisterUserMutation()
 
   const handleChange = (e) => {
     const { name, value } = e.target;

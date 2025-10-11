@@ -1,8 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MdOutlineDateRange } from 'react-icons/md';
 
-const BlogCard = ({ image, title, description, date, blogId }) => {
+const BlogCard = ({ id,image, title, description, date, blogId }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -10,9 +10,10 @@ const BlogCard = ({ image, title, description, date, blogId }) => {
   };
 
   return (
-    <div
+    <Link
+    to={`/blog/details/${id}`}
       className="border-[#6F6F6F] border-[1.5px] bg-[#1c1c1c] rounded-md overflow-hidden max-w-[365px] cursor-pointer"
-      onClick={handleNavigate}
+      
     >
       <div className="overflow-hidden">
         <img
@@ -33,7 +34,7 @@ const BlogCard = ({ image, title, description, date, blogId }) => {
           <span>{date}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

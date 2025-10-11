@@ -49,10 +49,7 @@ const router = createBrowserRouter([
         path: "/all-category",
         element: <AllCategory />,
       },
-      {
-        path: "/product-details",
-        element: <ProductDetails />
-      },
+      
       {
         path: "hot-selling",
         element: <AllHotSelling></AllHotSelling>
@@ -62,6 +59,10 @@ const router = createBrowserRouter([
         path: "/product",
         element: <Product></Product>
 
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetails />
       },
       // footer pages
       {
@@ -119,7 +120,7 @@ const router = createBrowserRouter([
         element: <ProcedureGuide />,
       },
       {
-        path: "/procedure-guide-details",
+        path: "/procedure-guide/:id",
         element: <ProcedureDetails />,
       },
       {

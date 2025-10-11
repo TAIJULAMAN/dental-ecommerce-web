@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HotSellingCard = ({
   image,
   title,
   description,
+  id,
   cardWidth = 288,
 
 }) => {
@@ -30,7 +31,7 @@ const HotSellingCard = ({
         <img
           src={cardData.image}
           alt={cardData.title}
-          className="w-full h-[280px] object-cover"
+          className="w-full lg:w-[280px] h-[280px] object-cover"
         />
         {/* Heart Icon */}
         <div className="absolute z-10 top-2 right-2">
@@ -48,12 +49,13 @@ const HotSellingCard = ({
         <p className="text-[#FCFBF8] text-lg line-clamp-1">{cardData.title}</p>
         <p className="text-[#9F9C96] text-sm line-clamp-2">{cardData.description}</p>
         <div className="flex justify-between">
-          <button
+          <Link
+          to={`/product/${id}`}
             className="px-4 py-2 rounded-md text-[#136BFB] border border-[#136BFB] cursor-pointer"
-            onClick={() => navigate(`/Product-details`)}
+            // onClick={() => navigate(`/Product-details`)}
           >
             View Details
-          </button>
+          </Link>
           <button
             className="bg-[#136BFB] px-4 py-2 rounded-md text-white border border-[#136BFB] cursor-pointer"
             onClick={() => navigate(`/shopping-cart`)}
